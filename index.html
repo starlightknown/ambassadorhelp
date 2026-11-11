@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Concept extension to Figma Forum Ambassadors: a weekly question digest and an internal routing view. Independent proposal, not affiliated with Figma.">
+<meta name="description" content="Ambassador Assist: a weekly digest concept for Figma Forum Ambassadors. Independent proposal, not affiliated with Figma.">
 <title>Ambassador Assist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -179,16 +179,12 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
     <div>
       <div class="eyebrow">Proposed extension to Figma Forum Ambassadors</div>
       <h1>Ambassador Assist</h1>
-      <p class="sub">Helping Forum Ambassadors spend their time on the unanswered questions they're best placed to answer, then turning their best answers into guides.</p>
+      <p class="sub">A weekly digest for Forum Ambassadors: open questions in your areas, the community leaderboard and what's happening on the forum.</p>
     </div>
-    <nav class="tabs" role="tablist" aria-label="Views">
-      <a href="#ambassador" id="tab-ambassador" role="tab" aria-controls="ambassador" aria-selected="true">Ambassador view <small>what ambassadors see</small></a>
-      <a href="#team" id="tab-team" role="tab" aria-controls="team" aria-selected="false">Community team view <small>internal</small></a>
-    </nav>
   </header>
 
   <!-- AMBASSADOR VIEW -->
-  <section class="view" id="ambassador" role="tabpanel" aria-labelledby="tab-ambassador">
+  <section class="view" id="ambassador">
     <div class="areas" id="chips" role="group" aria-label="Your areas"></div>
 
     <div class="grid2">
@@ -233,97 +229,11 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
     </div>
   </section>
 
-  <!-- TEAM VIEW -->
-  <section class="view" id="team" role="tabpanel" aria-labelledby="tab-team" hidden>
-    <div class="internal"><b>Internal</b> · Community team only. Ambassadors never see this view.</div>
-    <section class="funnel" aria-label="Routing funnel">
-      <div class="step"><span class="lab">In “Help others”</span><span class="num">415</span><span class="def">Topics without an accepted answer, across all categories</span><div class="meter"><i style="width:100%"></i></div></div>
-      <div class="step"><span class="lab">Ask the Community</span><span class="num">65</span><span class="def">The rest are bug reports, feature requests and feedback</span><div class="meter"><i style="width:15.7%"></i></div></div>
-      <div class="step hot"><span class="lab">Suited to Ambassadors</span><span class="num">46</span><span class="def">How-to and workflow questions a peer can answer</span><div class="meter"><i style="width:11.1%"></i></div></div>
-      <div class="step hot"><span class="lab">Waiting for any reply</span><span class="num">10</span><span class="def">Plus 17 more with a single reply and no solution</span><div class="meter"><i style="width:2.4%"></i></div></div>
-    </section>
-
-    <div class="grid2">
-      <div style="display:grid;gap:24px;align-content:start;min-width:0">
-      <section class="panel" aria-labelledby="t-base">
-        <h2 id="t-base">Is it working?</h2>
-        <div class="compare">
-          <div><b>6%</b><span>Accepted answers written by the community before launch<br>6 of 99, 17 Aug – 25 Oct</span></div>
-          <div class="after"><b>19%</b><span>Since the Ambassadors launched<br>4 of 21, 26 Oct – 8 Nov</span></div>
-        </div>
-        <p class="muted">An early signal from a small sample. The pilot would track this weekly, along with time to first reply.</p>
-      </section>
-      <section class="panel" aria-labelledby="t-review">
-        <h2 id="t-review">Needs review</h2>
-        <ul class="review">
-          <li><span class="pill warn">Points check</span><div><b>henerywein</b> answered within minutes, and the asker has the same surname. Held off the leaderboard until checked.<a href="https://forum.figma.com/ask-the-community-7/how-do-you-keep-figma-projects-organized-as-they-grow-58153" target="_blank" rel="noopener">View thread</a></div></li>
-          <li><span class="pill line">Check in</span><div><b>4 of 6 Ambassadors</b> have no accepted answers in Ask the Community yet. They may be active elsewhere. Ask which areas they'd like in their digest.</div></li>
-          <li><span class="pill line">Unrecognized</span><div><b>Nellya</b> has 839 replies and 475 likes, and no badge. A possible future Ambassador.</div></li>
-        </ul>
-      </section>
-      </div>
-
-      <section class="panel" aria-labelledby="t-route">
-        <div class="panel-head"><h2 id="t-route">Routing the 65 questions</h2></div>
-        <ul class="route" id="route"></ul>
-        <div class="keep">
-          <div class="yes"><h3>Suggest to Ambassadors</h3><ul><li>How-to and workflow questions</li><li>Auto layout, components, variables</li><li>Prototyping and sharing</li><li>Make, MCP and Dev Mode usage</li></ul></div>
-          <div class="no"><h3>Keep with Figma Support</h3><ul><li>Billing, plans and cancellations</li><li>Account access and permissions</li><li>Plugin review status</li><li>Bugs and outages</li></ul></div>
-        </div>
-      </section>
-    </div>
-
-    <section class="panel" aria-labelledby="t-shared">
-      <div class="panel-head">
-        <h2 id="t-shared">Solved → Shared: guide candidates</h2>
-        <span class="muted">Accepted community answers from the last 12 weeks that explain a reusable workflow</span>
-      </div>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Proposed guide</th><th>From the answer by</th><th>Original question</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td class="guide">Make auto layout frames grow upward with nested rows</td><td>Ondrej_Pavlicek<span class="meta">Figma Ambassador</span></td><td><a href="https://forum.figma.com/ask-the-community-7/make-auto-layout-frames-extend-upwards-57477" target="_blank" rel="noopener">Make auto layout frames extend upwards</a><span class="meta">Solved after sitting for about two months</span></td><td><span class="pill gold">Strong candidate</span></td></tr>
-            <tr><td class="guide">Install an older version of the Figma desktop app</td><td>Haroll<span class="meta">Figma Ambassador</span></td><td><a href="https://forum.figma.com/ask-the-community-7/is-there-a-way-i-can-use-an-older-version-of-figma-reverse-an-update-59673" target="_blank" rel="noopener">Is there a way I can use an older version of Figma?</a><span class="meta">Links back to an earlier thread with the same answer, so this one keeps coming up</span></td><td><span class="pill gold">Strong candidate</span></td></tr>
-            <tr><td class="guide">Fix overlapping dialogs with “First on top” canvas stacking</td><td>Johnson_Ryan<span class="meta">Active Member</span></td><td><a href="https://forum.figma.com/ask-the-community-7/trouble-using-canvas-stacking-feature-57974" target="_blank" rel="noopener">Trouble using Canvas Stacking feature</a><span class="meta">Included a demo file</span></td><td><span class="pill ok">Review</span></td></tr>
-            <tr><td class="guide">Put a Figma prototype on your website</td><td>NeoTang<span class="meta">New Member</span></td><td><a href="https://forum.figma.com/ask-the-community-7/my-prototype-isn-t-going-onto-my-website-59506" target="_blank" rel="noopener">My prototype isn't going onto my website</a></td><td><span class="pill ok">Review</span></td></tr>
-            <tr><td class="guide">“Not used within component” error: switch out of Draw mode</td><td>Lucas West-<span class="meta">New Participant</span></td><td><a href="https://forum.figma.com/ask-the-community-7/i-don-t-understand-why-i-keep-getting-the-not-used-within-component-error-59101" target="_blank" rel="noopener">Why do I keep getting the “Not used within component” error?</a></td><td><span class="pill ok">Review</span></td></tr>
-            <tr><td class="guide">Fill a stroke-only vector with the Paint tool</td><td>Nellya<span class="meta">Power Member</span></td><td><a href="https://forum.figma.com/ask-the-community-7/why-doesn-t-this-vector-show-a-fill-57879" target="_blank" rel="noopener">Why doesn't this vector show a fill?</a></td><td><span class="pill line">Short tip, may fit a FAQ</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="muted">Each guide would credit the member and link back to the thread. The community team checks accuracy and asks the author before publishing.</p>
-    </section>
-
-    <section class="panel" aria-labelledby="t-plan">
-      <h2 id="t-plan">Four-week pilot with the founding Ambassadors</h2>
-      <ol class="plan">
-        <li><span class="wk">Week 1</span><b>Learn their expertise</b>Ask the six Ambassadors which products and topics they like helping with.<span class="m">Output: an area list for each Ambassador</span></li>
-        <li><span class="wk">Week 2</span><b>Send a curated digest</b>Pick up to five matching questions each and review them by hand. The digest is optional.<span class="m">Measure: open rate, questions taken</span></li>
-        <li><span class="wk">Week 3</span><b>Capture reusable answers</b>Turn one or two accepted answers into short guides, with the author's permission.<span class="m">Measure: guides drafted, author approval</span></li>
-        <li><span class="wk">Week 4</span><b>Evaluate</b>Compare against the baseline on this page and ask Ambassadors what to change.<span class="m">Measure: time to first reply, community share of solutions, feedback</span></li>
-      </ol>
-    </section>
-
-    <section class="panel" aria-labelledby="t-src">
-      <h2 id="t-src">How this was measured</h2>
-      <ul class="src">
-        <li>All 415 topics in the forum's “Help others” view and the 275 most recently published Ask the Community topics, read on 11 Nov 2026.</li>
-        <li>120 of those topics had an accepted answer, given between 18 Aug and 7 Nov 2026. Staff means the forum's Figmate rank. Community covers everyone else, including Figma Ambassadors.</li>
-        <li>Ranks are the ones shown today, so earlier answers by current Ambassadors count as community answers.</li>
-        <li>The 65 open Ask the Community questions were sorted into areas and routes by hand. With Gainsight access, its topic tagging and Q&amp;A analytics could do this automatically.</li>
-        <li>The Ambassador program launched on 26 Oct 2026 with six founding members.</li>
-      </ul>
-    </section>
-  </section>
 </div>
 
 <script>
 const DIGEST = [{"area":"Auto layout & components","t":"Horizontal Auto-Layout Ignoring Fill Widths","url":"https://forum.figma.com/ask-the-community-7/horizontal-auto-layout-ignoring-fill-widths-58892","ex":" I’ve got two frames set to fill the width of their parent container. One of them (with text inside) has 24px padding set on the L+R. This seems to me","views":299,"replies":2,"age":"27 days ago","user":"Naomi_Adkins","rank":"Active Member","likes":0},{"area":"Auto layout & components","t":"How can I stop cards from stretching unevenly in a wrapping auto layout row?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-stop-cards-from-stretching-unevenly-in-a-wrapping-auto-layout-row-59485","ex":" Hi everyone, I am working on a simple card grid for a dashboard and I am stuck on how auto layout handles wrapping rows. I have a horizontal auto lay","views":34,"replies":2,"age":"6 days ago","user":"mith sams","rank":"New Participant","likes":0},{"area":"Auto layout & components","t":"problem with the card componets","url":"https://forum.figma.com/ask-the-community-7/problem-with-the-card-componets-59626","ex":" Hi guysI have some problem with my product card componets.I want to do the hover which when you hover on the cards, the picture would be a little bit","views":101,"replies":6,"age":"7 days ago","user":"maryam0808","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Component hovering issue","url":"https://forum.figma.com/ask-the-community-7/component-hovering-issue-59015","ex":" I attached a short video about My problem, What's wrong? This is the first time I see issue like this. ","views":12,"replies":0,"age":"26 days ago","user":"Ali Shahabi","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Weird display way larger than the actual vector boundary (component)","url":"https://forum.figma.com/ask-the-community-7/weird-display-way-larger-than-the-actual-vector-boundary-component-59047","ex":" I attached an image.When I drag and drop the instance, the display is fixed.How can I fix the issue ? Where does it come from ?Thanks ! ","views":54,"replies":1,"age":"15 days ago","user":"Hugo-M","rank":"New Participant","likes":0},{"area":"Auto layout & components","t":"Auto-layout breaking on responsive web dashboard prototype","url":"https://forum.figma.com/ask-the-community-7/auto-layout-breaking-on-responsive-web-dashboard-prototype-59152","ex":" Hi everyone, I am currently putting together a responsive gaming client concept in Figma, taking inspiration from the interface structure found on th","views":79,"replies":3,"age":"18 days ago","user":"ethan_carter_87","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Customizing Properties","url":"https://forum.figma.com/ask-the-community-7/customizing-properties-59129","ex":" Hello:I am new to Figma. I asked my AI to build a basic Home Screen for a project. When it created it, it made a bunch of categories in properties wh","views":321,"replies":1,"age":"22 days ago","user":"Dsync","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Overrides reset after publishing a library component update. Any way to prevent this?","url":"https://forum.figma.com/ask-the-community-7/overrides-reset-after-publishing-a-library-component-update-any-way-to-prevent-this-58579","ex":" I have a chip component in our design system library (1 text layer + 2 icon instances). When I make changes to it and publish, then accept the update","views":295,"replies":1,"age":"27 days ago","user":"Mahzyar Soodmand","rank":"New Member","likes":1},{"area":"Design systems & variables","t":"Best way to structure reusable Figma components for a skincare product page and educational blog?","url":"https://forum.figma.com/ask-the-community-7/best-way-to-structure-reusable-figma-components-for-a-skincare-product-page-and-educational-blog-59312","ex":" Hi everyone,I'm working on a mobile-first Figma design system for a kids' skincare and wellness website. I want to make the product pages and educati","views":211,"replies":1,"age":"7 days ago","user":"careprereq","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Best practices for designing bilingual Hijri/Gregorian date picker components in Figma?","url":"https://forum.figma.com/ask-the-community-7/best-practices-for-designing-bilingual-hijri-gregorian-date-picker-components-in-figma-58288","ex":" Hi Figma community,I’m working on a public date conversion tool at dateconvertersa.com that helps Arabic-speaking users switch between Hijri and Greg","views":121,"replies":1,"age":"15 days ago","user":"Omar765","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"How to structure variants and variables for an auction app, with bid states and a countdown timer, so the prototype and Dev Mode handoff stay clean?","url":"https://forum.figma.com/ask-the-community-7/how-to-structure-variants-and-variables-for-an-auction-app-with-bid-states-and-a-countdown-timer-so-the-prototype-and-dev-mode-handoff-stay-clean-59394","ex":" Hi everyone,I am designing the screens for a mobile auction app in Figma Design and would like advice on how to structure the file before it grows. I","views":84,"replies":0,"age":"13 days ago","user":"taniya.mittalusa","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Figma Library Adding Issue","url":"https://forum.figma.com/ask-the-community-7/figma-library-adding-issue-59209","ex":" First I created a new Figma design file A in the team XYZ then, I was able to see my organization library PQR, I added , then with some reason I remo","views":24,"replies":1,"age":"19 days ago","user":"Ravi Ranjan","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Figma Branching: How can we identify and resolve conflicts at the layer level?","url":"https://forum.figma.com/ask-the-community-7/figma-branching-how-can-we-identify-and-resolve-conflicts-at-the-layer-level-59421","ex":" Hi everyone,I'm facing an issue with Figma's branching and merging workflow, and I'd like to know if anyone else has experienced the same problem or ","views":178,"replies":2,"age":"10 days ago","user":"ramsai velaga","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Did anyone find a plugin that can read Extended Collections?","url":"https://forum.figma.com/ask-the-community-7/did-anyone-find-a-plugin-that-can-read-extended-collections-56118","ex":" I’m trying to find a plugin for exporting variables. I was very happy with Variables2css because it has alias fallbacks. But it won’t run at all if t","views":82,"replies":2,"age":"12 days ago","user":"Julia57","rank":"Active Member","likes":0},{"area":"Prototyping & sharing","t":"Suddenly Can't Use PS Button (Home) for Prototyping","url":"https://forum.figma.com/ask-the-community-7/suddenly-can-t-use-ps-button-home-for-prototyping-55193","ex":" Hello,I've been using Figma for a while, and I've been able to use PS5 DualSense's PS button to trigger interactions. However, I recently updated and","views":93,"replies":2,"age":"28 days ago","user":"Duarte_Edan","rank":"New Member","likes":0},{"area":"Prototyping & sharing","t":"Comment partager un prototype sans permettre l'accès au fichier design ?","url":"https://forum.figma.com/ask-the-community-7/comment-partager-un-prototype-sans-permettre-l-acces-au-fichier-design-59761","ex":" Bonjour ! Je suis webdesigner, et j’ai pour habitude de partager le prototype de mes maquettes graphiques à mes clients. Avant, je pouvais leur parta","views":27,"replies":0,"age":"5 days ago","user":"G_comme_une_idee","rank":"New Member","likes":0},{"area":"Prototyping & sharing","t":"Framed too Zoomed in on Presentation Mode","url":"https://forum.figma.com/ask-the-community-7/framed-too-zoomed-in-on-presentation-mode-59049","ex":" Can anyone assist me with getting my prototype to fit into the frame when in presentation mode. It fits perfectly when I preview the prototype but as","views":80,"replies":3,"age":"25 days ago","user":"Carmen van der Merwe","rank":"New Member","likes":0},{"area":"FigJam","t":"Why don’t connector lines work properly with frame instances?","url":"https://forum.figma.com/ask-the-community-7/why-don-t-connector-lines-work-properly-with-frame-instances-58999","ex":" When using FigJam connector lines to map user flows in a Figma design file, I can attach either end of a connector line to any element within a regul","views":32,"replies":2,"age":"26 days ago","user":"Tho Truong","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Can a Weave MCP run be restored into an editable Canvas workflow?","url":"https://forum.figma.com/ask-the-community-7/can-a-weave-mcp-run-be-restored-into-an-editable-canvas-workflow-58949","ex":" Hi everyone!I'm using Figma Weave with Seedance 2.5 Reference through the official Figma MCP integration in Codex.My Canvas workflow is connected to ","views":42,"replies":1,"age":"27 days ago","user":"VladisU","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Figma Chrome extension plugin - capture design - images not pasting","url":"https://forum.figma.com/ask-the-community-7/figma-chrome-extension-plugin-capture-design-images-not-pasting-59940","ex":" Some websites when i capture the design using the Figma chrome extension and paste it into Figma, some, or all images aren’t pasting through and some","views":5,"replies":1,"age":"18 hours ago","user":"Shannon Chen","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Any tips for making Figma AI Agent credits last longer?","url":"https://forum.figma.com/ask-the-community-7/any-tips-for-making-figma-ai-agent-credits-last-longer-58719","ex":" I feel like my AI Agent credits run out pretty quickly, even when I’m only using it for a few design tasks.What kind of workflow do you use to make y","views":67,"replies":1,"age":"23 days ago","user":"Super Indonesia","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"How to Send a Frame Directly to Figma Make","url":"https://forum.figma.com/ask-the-community-7/how-to-send-a-frame-directly-to-figma-make-59435","ex":" Hi, after the latest update, “Send to Figma Make” seems to have been replaced by “Build with code.”How can I send a frame directly to Figma Make with","views":113,"replies":2,"age":"12 days ago","user":"Ruoti Jacopo","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"UI image to Figma converstion?","url":"https://forum.figma.com/ask-the-community-7/ui-image-to-figma-converstion-57093","ex":" Hi all,I have a UI dashboard design as an Image, and looking to convert it into a Figma Design, i have used plugins: Convert to Figma Design and Code","views":33,"replies":1,"age":"12 days ago","user":"Sharath kumar","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Code Layers using chrome extention","url":"https://forum.figma.com/ask-the-community-7/code-layers-using-chrome-extention-59250","ex":" i am trying to use the code layers feature in figma beta app but shows pasting as code layers is not available to you, is this feature invite only or","views":191,"replies":5,"age":"13 days ago","user":"Abhishek5","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Taking a website design made with maker to an editable design that can be imported to Wordpress/Elementor in the future","url":"https://forum.figma.com/ask-the-community-7/taking-a-website-design-made-with-maker-to-an-editable-design-that-can-be-imported-to-wordpress-elementor-in-the-future-51867","ex":" Hi i need some help, i am trying out Figma and I’ve developed a website design in maker that my client is super happy with and now need to move it to","views":65,"replies":3,"age":"5 days ago","user":"JT9876","rank":"New Member","likes":1},{"area":"Dev Mode, MCP & code","t":"Connecting Figma’s remote MCP server to a third-party MCP gateway (TrueFoundry) via OAuth. Has anyone made this work?","url":"https://forum.figma.com/ask-the-community-7/connecting-figma-s-remote-mcp-server-to-a-third-party-mcp-gateway-truefoundry-via-oauth-has-anyone-made-this-work-59297","ex":" I’m trying to connect https://mcp.figma.com/mcp to TrueFoundry’s MCP gateway using OAuth2 (Authorization Code + PKCE, DCR registration, scope mcp:con","views":101,"replies":0,"age":"16 days ago","user":"Eyal Tzaig","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"unable to aurhorise Figma MCP in VS Code","url":"https://forum.figma.com/ask-the-community-7/unable-to-aurhorise-figma-mcp-in-vs-code-59778","ex":" Hi,I am struggling to get vs code to connect to the figma MCPI have the Figma MCP Server install in VS Code is says it it is running.I receive a auth","views":39,"replies":0,"age":"5 days ago","user":"Richard_London","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"QA of the live website/app against the Figma designs after developer deployment","url":"https://forum.figma.com/ask-the-community-7/qa-of-the-live-website-app-against-the-figma-designs-after-developer-deployment-59773","ex":" Hi fellow designers and developers!I'm looking for the best tool (AI-powered or a working plugin) for design QA after developers deploy a website or ","views":51,"replies":0,"age":"5 days ago","user":"Nir Blustein","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"How to optimize Figma vector exports & layout tokens for Core Web Vitals (INP/LCP) in UK enterprise builds?","url":"https://forum.figma.com/ask-the-community-7/how-to-optimize-figma-vector-exports-layout-tokens-for-core-web-vitals-inp-lcp-in-uk-enterprise-builds-59744","ex":" Hi everyone,When collaborating on enterprise web design and design-system implementations for UK clients, one recurring bottleneck our engineering te","views":63,"replies":0,"age":"5 days ago","user":"KamranSunil","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"Retrieve signed-in user identity via SSO in a Figma app","url":"https://forum.figma.com/ask-the-community-7/retrieve-signed-in-user-identity-via-sso-in-a-figma-app-59823","ex":" Hi everyone,Is there a way for a Figma make published app to retrieve the identity of the currently signed-in user through SSO?Our organisation alrea","views":6,"replies":0,"age":"4 days ago","user":"You Shan Ang","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Figma Flow design for Klaviyo","url":"https://forum.figma.com/ask-the-community-7/figma-flow-design-for-klaviyo-54648","ex":" Hi, I need to transfer over a design for a Klaviyo email flow from figma to Klaviyo...it is a copy and paste situtaion? I’m very new to this so any a","views":39,"replies":1,"age":"27 days ago","user":"Alexandra John","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How to cross-link CMS articles?","url":"https://forum.figma.com/ask-the-community-7/how-to-cross-link-cms-articles-51923","ex":" With a nice collection of CMS articles in Figma I could not figure out how to cross-link them. I was about to add a link to the content in rich text ","views":63,"replies":2,"age":"7 days ago","user":"Géz","rank":"New Member","likes":2},{"area":"Workflows & tips","t":"How can i use the Figma x Sanrio collab function?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-use-the-figma-x-sanrio-collab-function-59600","ex":" So excited the new launch of Figma x Sanrio. I tried to open the Figjam file but nothing Sanrio related stuff happen. Really want to change my Figpal","views":464,"replies":7,"age":"7 days ago","user":"BelleLi057","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"What useful, problem-solving Figma plugin do you think is still missing in 2026?","url":"https://forum.figma.com/ask-the-community-7/what-useful-problem-solving-figma-plugin-do-you-think-is-still-missing-in-2026-58008","ex":" I’m interested in tools that solve a real, frustrating problem or save significant time—not another generic AI design tool.What task do you still fin","views":162,"replies":2,"age":"27 days ago","user":"Galif Hasan","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Help balancing these visuals","url":"https://forum.figma.com/ask-the-community-7/help-balancing-these-visuals-59531","ex":" Hi. I just started figma yesterday. I made a decent mockup of a tool I wanted to make, except that I did it all by freehand. I am trying to remake th","views":79,"replies":2,"age":"8 days ago","user":"William69","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Balsamiq to Figma","url":"https://forum.figma.com/ask-the-community-7/balsamiq-to-figma-58893","ex":" Hi there!A few months ago, our campany merged with another one whose designers used to work with Balsamiq. They’ve just migrated to our Figma organiz","views":350,"replies":0,"age":"29 days ago","user":"BERTHELE","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Change Figma plan/organization profile picture","url":"https://forum.figma.com/ask-the-community-7/change-figma-plan-organization-profile-picture-59505","ex":" How do I edit an organization (or a plan)’s profile picture?I am an admin of this “💡 DCC” organization. I want to change the blue icon. Clicking Sett","views":65,"replies":2,"age":"8 hours ago","user":"Clement_Roze1","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Remap alt-right shortcut to duplicate on Windows","url":"https://forum.figma.com/ask-the-community-7/remap-alt-right-shortcut-to-duplicate-on-windows-59955","ex":" I’ve been using a Mac for the past 20 years. Because of security policies within our company I switched to a Windows machine last week. I'm left-hand","views":19,"replies":0,"age":"15 hours ago","user":"Chinkone","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Feedback to improve my case study","url":"https://forum.figma.com/ask-the-community-7/feedback-to-improve-my-case-study-54740","ex":" Hi All,I've completed two UX projects and am currently working on my third. However, despite applying for roles, I'm not receiving many interview cal","views":35,"replies":1,"age":"23 days ago","user":"Scorpio","rank":"New Member","likes":1},{"area":"Workflows & tips","t":"hwo do you keep a simple website design from looking too plain?","url":"https://forum.figma.com/ask-the-community-7/hwo-do-you-keep-a-simple-website-design-from-looking-too-plain-58209","ex":" Im working on a small website and im trying to keep the design simple without the page feel empty. i usually prefer a clean layout with limited color","views":43,"replies":1,"age":"23 days ago","user":"islabrown190","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How do Mac designers manage clipboard history when working in Figma?","url":"https://forum.figma.com/ask-the-community-7/how-do-mac-designers-manage-clipboard-history-when-working-in-figma-59042","ex":" When working on UI designs, I often find myself copying and pasting the same kinds of things throughout the day: text snippets, color values, screens","views":25,"replies":1,"age":"25 days ago","user":"vehlaapp","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Why are not all selected files being exported?","url":"https://forum.figma.com/ask-the-community-7/why-are-not-all-selected-files-being-exported-59216","ex":" I keep running into the problem that I select, say, 5 files to export, but the downloaded zip file contains only 2. I don’t receive any kind of error","views":75,"replies":3,"age":"13 days ago","user":"Iris L","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How can I disable AI features? All of them.","url":"https://forum.figma.com/ask-the-community-7/how-can-i-disable-ai-features-all-of-them-54862","ex":" Hello,I’m a designer, I don’t need AI doing my work and nagging me constantly in the interface. It doesn’t work, it’s useless and I don’t want it.It’","views":1761,"replies":7,"age":"13 days ago","user":"Julien_Dedale","rank":"New Participant","likes":16},{"area":"Workflows & tips","t":"File Size - PDF","url":"https://forum.figma.com/ask-the-community-7/file-size-pdf-59114","ex":" I work in Figma to create analytical reports containing mostly text, but also images and tables, each report is 20+ pages long and each export result","views":48,"replies":1,"age":"22 days ago","user":"maria.tomilenko","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Figma Text formatting issues","url":"https://forum.figma.com/ask-the-community-7/figma-text-formatting-issues-59123","ex":" Hello community,We are experiencing a recurring typography-formatting issue in Figma that is affecting our production workflow.Observed issues:Supers","views":41,"replies":1,"age":"22 days ago","user":"Midhun George","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"I’m looking for a more efficient workflow in Figma","url":"https://forum.figma.com/ask-the-community-7/i-m-looking-for-a-more-efficient-workflow-in-figma-59399","ex":" How do you manage localized screenshots when the same design changes need to be applied across multiple languages? Are there any best practices invol","views":45,"replies":1,"age":"10 days ago","user":"Serhii30","rank":"New Member","likes":0}];
 const AREAS = ["Auto layout & components","Design systems & variables","Prototyping & sharing","FigJam","Figma Make & AI","Dev Mode, MCP & code","Workflows & tips"];
-const ROUTES = [["Suited to Ambassadors",46,"var(--green)"],["Keep with Figma Support",12,"var(--warn)"],["Redirect: sponsorship or feature request",6,"var(--staff)"],["Moderate: spam",1,"var(--self)"]];
-// Weekly accepted answers in Ask the Community, weeks starting Mon 17 Aug 2026: [community, staff, asker]
-const WEEKS = [[0,6,2],[0,11,0],[0,6,0],[1,9,0],[2,11,0],[0,11,0],[0,11,0],[0,8,1],[0,9,0],[3,8,0],[1,10,0],[3,6,1]];
-const WEEK_LABELS = ["17 Aug","24 Aug","31 Aug","7 Sep","14 Sep","21 Sep","28 Sep","5 Oct","12 Oct","19 Oct","26 Oct","2 Nov"];
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -388,39 +298,6 @@ $("qlist").addEventListener("click",e=>{
   renderDigest();
 });
 
-function renderRoute(){
-  const max = 65;
-  $("route").innerHTML = ROUTES.map(([k,v,c])=>`<li><span>${k}</span><span class="c">${v}</span><span class="bar"><i style="width:${v/max*100}%;background:${c}"></i></span></li>`).join("");
-}
-
-function drawChart(){
-  const svg = $("chart"), W=560, H=250, L=30, R=8, T=22, B=36;
-  const max = 16, ih = H-T-B, iw = W-L-R, n = WEEKS.length, step = iw/n, bw = step*0.62;
-  const y = v => T + ih - v/max*ih;
-  let s = "";
-  [0,4,8,12,16].forEach(v=>{
-    s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/>`;
-    s += `<text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="JetBrains Mono, monospace">${v}</text>`;
-  });
-  WEEKS.forEach(([c,st,se],i)=>{
-    const x = L + i*step + (step-bw)/2;
-    let base = 0;
-    [[c,"var(--green)"],[st,"var(--staff)"],[se,"var(--self)"]].forEach(([v,col])=>{
-      if(!v) return;
-      s += `<rect x="${x}" y="${y(base+v)}" width="${bw}" height="${Math.max(0,y(base)-y(base+v)-1.5)}" fill="${col}" rx="2"/>`;
-      base += v;
-    });
-    if (c) s += `<text x="${x+bw/2}" y="${y(base)-4}" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--green)" font-family="JetBrains Mono, monospace">${c}</text>`;
-    if (i%2===0 || i===n-1) s += `<text x="${x+bw/2}" y="${H-14}" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace">${WEEK_LABELS[i]}</text>`;
-  });
-  const lx = L + 10*step;
-  s += `<line x1="${lx}" x2="${lx}" y1="${T-8}" y2="${y(0)}" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3 3"/>`;
-  s += `<text x="${lx-4}" y="${T-10}" text-anchor="end" font-size="10.5" font-weight="600" fill="var(--gold)" font-family="Inter, sans-serif">Ambassadors launch, 26 Oct</text>`;
-  s += `<text x="${L}" y="${H-1}" font-size="10.5" fill="var(--muted)" font-family="Inter, sans-serif">Week starting</text>`;
-  svg.innerHTML = s;
-}
-
-
 const BOARD = {
   launch: [["Ondrej_Pavlicek","Ambassador",35,2],["Haroll","Ambassador",20,1],["NeoTang","New Member",15,1]],
   "12w":  [["Ondrej_Pavlicek","Ambassador",70,4],["Haroll","Ambassador",20,1],["Johnson_Ryan","Active Member",20,1],["Nellya","Power Member",20,1],["NeoTang","New Member",15,1],["Lucas West-","New Participant",15,1]]
@@ -436,12 +313,7 @@ function renderBoard(){
 }
 document.querySelectorAll(".board .seg button").forEach(b=>b.addEventListener("click",()=>{boardP=b.dataset.p;renderBoard();}));
 
-function show(){
-  const id = location.hash === "#team" ? "team" : "ambassador";
-  ["ambassador","team"].forEach(v=>{ $(v).hidden = v!==id; $("tab-"+v).setAttribute("aria-selected", String(v===id)); });
-}
-window.addEventListener("hashchange", show);
-renderChips(); renderDigest(); renderRoute(); renderBoard(); show();
+renderChips(); renderDigest(); renderBoard();
 </script>
 
 </body>

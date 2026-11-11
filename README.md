@@ -6,14 +6,13 @@ The [Ambassador program](https://forum.figma.com/forum-news-and-guidelines-25/an
 
 **Live page:** `index.html`, served with GitHub Pages.
 
-## The two views
+## What's on the page
 
-- **Ambassador view (`#ambassador`).** A weekly digest. An Ambassador picks the topic areas they like helping with and gets up to five open how-to questions. Questions with no reply come first. Billing, account, plugin-review and bug questions are left out because they belong with Figma Support.
-- **Community team view (`#team`).** The internal side:
-  - A routing funnel: 415 topics in "Help others", then 65 in Ask the Community, then 46 suited to Ambassadors, then 10 with no reply.
-  - A baseline of who writes accepted answers: community members wrote 6% before launch and 19% after.
-  - Guide candidates ("Solved → Shared").
-  - A four-week pilot plan.
+The page is what an Ambassador would see each week:
+
+- **Picked for you this week.** Up to five open how-to questions from Ask the Community, filtered to the areas the Ambassador chooses. Questions with no reply come first, then the most viewed. Billing, account, plugin-review and bug questions are left out because they belong with Figma Support.
+- **Leaderboard.** Points from accepted answers: +10 for a solution, +5 when the asker is a New Member, +5 for solving within 24 hours. Replies that don't solve anything earn nothing. It toggles between "Since launch" and "12 weeks".
+- **What's happening.** Recent solutions with the points earned, questions that have waited longest, and program news.
 
 ## How "Help others" differs
 
