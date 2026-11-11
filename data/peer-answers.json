@@ -1,0 +1,206 @@
+{
+ "weeks": [
+  [
+   0,
+   6,
+   2
+  ],
+  [
+   0,
+   11,
+   0
+  ],
+  [
+   0,
+   6,
+   0
+  ],
+  [
+   1,
+   9,
+   0
+  ],
+  [
+   2,
+   11,
+   0
+  ],
+  [
+   0,
+   11,
+   0
+  ],
+  [
+   0,
+   11,
+   0
+  ],
+  [
+   0,
+   8,
+   1
+  ],
+  [
+   0,
+   9,
+   0
+  ],
+  [
+   3,
+   8,
+   0
+  ],
+  [
+   1,
+   10,
+   0
+  ],
+  [
+   3,
+   6,
+   1
+  ]
+ ],
+ "peer": [
+  {
+   "h": "Haroll",
+   "rank": "Figma Ambassador",
+   "t": "Is there a way I can use an older version of Figma/reverse an update?",
+   "url": "https://forum.figma.com/ask-the-community-7/is-there-a-way-i-can-use-an-older-version-of-figma-reverse-an-update-59673",
+   "date": "2026-11-04",
+   "askrank": "New Member",
+   "asker": "veronica.mp4",
+   "replies": 279,
+   "likes": 207,
+   "badge": true,
+   "excerpt": "As tank666 mentioned in another post, you can download any previous version using that URL. Just change the version number to whichever one you need. https://desktop.figma.com/mac-universal/build/Figma-125.4.6.dmg",
+   "hrs": 6.1
+  },
+  {
+   "h": "NeoTang",
+   "rank": "New Member",
+   "t": "My prototype isn't going onto my website",
+   "url": "https://forum.figma.com/ask-the-community-7/my-prototype-isn-t-going-onto-my-website-59506",
+   "date": "2026-11-03",
+   "askrank": "New Member",
+   "asker": "al1026705",
+   "replies": 6,
+   "likes": 0,
+   "badge": false,
+   "excerpt": "Stacking the pink frame “above” a layer won’t put the prototype on a real site — components only reuse stuff inside Figma. Two usual paths: Share → copy the prototype link (or embed), then drop that iframe / link into yo",
+   "hrs": 38.2
+  },
+  {
+   "h": "Ondrej_Pavlicek",
+   "rank": "Figma Ambassador",
+   "t": "“Fill container” option missing on nested text layer inside a component (Auto Layout)",
+   "url": "https://forum.figma.com/ask-the-community-7/fill-container-option-missing-on-nested-text-layer-inside-a-component-auto-layout-59426",
+   "date": "2026-10-29",
+   "askrank": "New Member",
+   "asker": "SuryaSteel11",
+   "replies": 77,
+   "likes": 51,
+   "badge": true,
+   "excerpt": "Hi there! 👋 I totally understand what you're struggling with. Honestly, I don't think there's a way to have it do everything automatically on its own, or at least I haven't figured it out yet. Generally, I stick to setti",
+   "hrs": 0.9
+  },
+  {
+   "h": "Ondrej_Pavlicek",
+   "rank": "Figma Ambassador",
+   "t": "Creating a button with a custom image that expands as you type",
+   "url": "https://forum.figma.com/ask-the-community-7/creating-a-button-with-a-custom-image-that-expands-as-you-type-59130",
+   "date": "2026-10-20",
+   "askrank": "New Member",
+   "asker": "Dsync",
+   "replies": 77,
+   "likes": 51,
+   "badge": true,
+   "excerpt": "Glad it helped! 😊 It’s a bit different here, because auto layout doesn’t work well with arrow shapes. The easiest way is to keep the arrows and the texts in separate layers: Arrows: draw them as polygons, give each one a",
+   "hrs": 23.4
+  },
+  {
+   "h": "Lucas West-",
+   "rank": "New Participant",
+   "t": "I don't understand why I keep getting the \"Not used within component\" error",
+   "url": "https://forum.figma.com/ask-the-community-7/i-don-t-understand-why-i-keep-getting-the-not-used-within-component-error-59101",
+   "date": "2026-10-22",
+   "askrank": "New Member",
+   "asker": "Remorhaz",
+   "replies": 12,
+   "likes": 2,
+   "badge": false,
+   "excerpt": "Oh, looking at our interfaces side-by-side again, I just realized that you are totally in “draw” mode. Switch back to “design” mode, it’s the second mode.. When you are in draw mode, it doesn’t show the button you need t",
+   "hrs": 97.8
+  },
+  {
+   "h": "Ondrej_Pavlicek",
+   "rank": "Figma Ambassador",
+   "t": "Next / previous comment keyboard shortcut",
+   "url": "https://forum.figma.com/ask-the-community-7/next-previous-comment-keyboard-shortcut-59032",
+   "date": "2026-10-21",
+   "askrank": "New Member",
+   "asker": "Gregcognito",
+   "replies": 77,
+   "likes": 51,
+   "badge": true,
+   "excerpt": "Hi there! I was looking for the same thing, but I don’t think there’s a shortcut for it yet, at least I haven’t found one. I just use the comments panel (C) and click through them there. I’d use it a lot though. After a ",
+   "hrs": 134.6
+  },
+  {
+   "h": "henerywein",
+   "rank": "New Member",
+   "t": "How do you keep Figma projects organized as they grow?",
+   "url": "https://forum.figma.com/ask-the-community-7/how-do-you-keep-figma-projects-organized-as-they-grow-58153",
+   "date": "2026-09-19",
+   "askrank": "New Member",
+   "asker": "chesterwein",
+   "replies": 1,
+   "likes": 1,
+   "badge": false,
+   "excerpt": "I’ve found that simple, consistent structure works best as a Figma file grows. Clear page names, predictable component naming, and keeping active work separate from old explorations make a big difference. I also try to o",
+   "hrs": 0.0
+  },
+  {
+   "h": "Johnson_Ryan",
+   "rank": "Active Member",
+   "t": "Trouble using Canvas Stacking feature",
+   "url": "https://forum.figma.com/ask-the-community-7/trouble-using-canvas-stacking-feature-57974",
+   "date": "2026-09-14",
+   "askrank": "New Member",
+   "asker": "Manuela Petenuzzo Mendes",
+   "replies": 26,
+   "likes": 27,
+   "badge": false,
+   "excerpt": "From what I can see, it looks like you might need to update your Calendar component so that children of the dialog are arranged using “First on top” Canvas stacking. (Here’s a simple demo...) If that doesn’t work, check ",
+   "hrs": 3.4
+  },
+  {
+   "h": "Nellya",
+   "rank": "Power Member",
+   "t": "Why doesn't this vector show a fill?",
+   "url": "https://forum.figma.com/ask-the-community-7/why-doesn-t-this-vector-show-a-fill-57879",
+   "date": "2026-09-11",
+   "askrank": "New Member",
+   "asker": "Tristam3000",
+   "replies": 839,
+   "likes": 475,
+   "badge": false,
+   "excerpt": "You need to use Paint tool to fill your stroke shape",
+   "hrs": 1.0
+  },
+  {
+   "h": "Ondrej_Pavlicek",
+   "rank": "Figma Ambassador",
+   "t": "Make auto layout frames extend upwards",
+   "url": "https://forum.figma.com/ask-the-community-7/make-auto-layout-frames-extend-upwards-57477",
+   "date": "2026-11-07",
+   "askrank": "New Member",
+   "asker": "Ed Duffill",
+   "replies": 77,
+   "likes": 51,
+   "badge": true,
+   "excerpt": "Hi there! 👋 Thanks for sharing the screenshots! I don't think grids will solve this as I couldn't get it to work that way either. Instead, I would recommend using nested Auto Layout frames with two rows instead of column",
+   "hrs": 1566.9
+  }
+ ]
+}
