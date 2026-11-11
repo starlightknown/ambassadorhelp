@@ -6,120 +6,131 @@
 <meta name="description" content="Concept extension to Figma Forum Ambassadors: a weekly question digest and an internal routing view. Independent proposal, not affiliated with Figma.">
 <title>Ambassador Assist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: two views behind a tab bar. Ambassador view is a focused weekly digest; Community team view is a console of routing, baseline, guide candidates and the pilot plan. */
+/* Layout: forum-style light page. White ground, black type, grey meta text, hairline-bordered rounded lists, green check for solutions. Single light theme on purpose, to match the forum. */
 :root{
-  --bg:#f3f5f4; --surface:#ffffff; --ink:#15242a; --muted:#5b6b70; --line:#dde3e2;
-  --accent:#0f6b63; --accent-soft:#e1efec; --gold:#b7861b; --gold-soft:#f7edd4;
-  --staff:#a9b6b8; --self:#d9c9a3; --warn:#b4531f; --warn-soft:#f8e6dc;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Inter", system-ui, -apple-system, sans-serif;
+  --bg:#ffffff; --surface:#ffffff; --ink:#000000; --text:#2b2b2b; --muted:#8c8c8c; --line:#e8e8e8; --soft:#f5f5f5;
+  --accent:#000000; --gold:#000000;
+  --green:#23cb71; --green-ink:#0f7a41; --green-soft:#e9f9f0;
+  --staff:#a7aeb5; --self:#d5d7db; --warn:#ff3737; --info:#4d49fc;
+  --f-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1719; --surface:#162226; --ink:#e4ecec; --muted:#93a4a7; --line:#26363a;
-  --accent:#4fc2b4; --accent-soft:#183a37; --gold:#e2b24a; --gold-soft:#3a3018;
-  --staff:#4c5d61; --self:#6b5d3c; --warn:#f08a55; --warn-soft:#3d2519; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f1719; --surface:#162226; --ink:#e4ecec; --muted:#93a4a7; --line:#26363a;
-  --accent:#4fc2b4; --accent-soft:#183a37; --gold:#e2b24a; --gold-soft:#3a3018;
-  --staff:#4c5d61; --self:#6b5d3c; --warn:#f08a55; --warn-soft:#3d2519; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
-.wrap{max-width:1160px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
-.notice{font-family:var(--f-mono);font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:8px 12px;margin:0}
-.notice b{color:var(--ink);font-weight:500}
-header{display:grid;gap:14px}
-.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
-h1{font-family:var(--f-display);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.05;margin:4px 0 6px;text-wrap:balance}
-.sub{color:var(--muted);margin:0;max-width:64ch}
-h2{font-family:var(--f-display);font-weight:500;font-size:20px;margin:0;text-wrap:balance}
-h3{font-size:14px;margin:0;font-weight:600}
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
-.tabs a{font:600 14px var(--f-body);color:var(--muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;display:flex;gap:8px;align-items:center}
-.tabs a[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
-.tabs small{font:500 11px var(--f-mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.view{display:grid;gap:20px}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;align-content:start;min-width:0}
+.wrap{max-width:1200px;margin:0 auto;padding-block:20px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:24px}
+.notice{font-size:12.5px;color:var(--muted);background:var(--soft);border-radius:8px;padding:8px 12px;margin:0}
+.notice b{color:var(--ink);font-weight:600}
+header{display:grid;gap:20px}
+.eyebrow{font-size:13px;color:var(--muted);font-weight:500}
+h1{font-weight:700;font-size:clamp(28px,4.4vw,40px);line-height:1.1;letter-spacing:-.02em;margin:6px 0 8px;text-wrap:balance}
+.sub{color:var(--text);margin:0;max-width:64ch;font-size:16px}
+h2{font-weight:700;font-size:22px;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h3{font-size:15px;margin:0;font-weight:700}
+.tabs{display:flex;gap:28px;overflow-x:auto}
+.tabs a{font:400 20px var(--f-body);color:var(--muted);text-decoration:none;padding:4px 0 8px;border-bottom:3px solid transparent;white-space:nowrap;display:flex;gap:8px;align-items:baseline}
+.tabs a[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.tabs small{font-size:12px;color:var(--muted)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--info);outline-offset:2px}
+.view{display:grid;gap:24px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
 .panel-head{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;align-items:baseline}
-.grid2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
-a{color:var(--accent);font-weight:500}
-.muted{color:var(--muted);font-size:13px;margin:0}
-.pill{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.03em;border-radius:999px;padding:2px 9px;white-space:nowrap}
-.pill.ok{background:var(--accent-soft);color:var(--accent)}
-.pill.warn{background:var(--warn-soft);color:var(--warn)}
-.pill.gold{background:var(--gold-soft);color:var(--gold)}
-.pill.line{border:1px solid currentColor;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px}
+a{color:var(--ink);font-weight:500}
+.muted{color:var(--muted);font-size:14px;margin:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;border-radius:4px;padding:2px 8px;white-space:nowrap}
+.pill.ok{background:var(--green);color:#ffffff}
+.pill.warn{background:#a3a3a3;color:#ffffff}
+.pill.gold{background:var(--ink);color:#ffffff}
+.pill.line{background:var(--soft);color:var(--muted)}
+.ico{width:18px;height:18px;flex:none;fill:currentColor}
 
 /* Ambassador view */
-.hello{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:end}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:500 13px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.chip span{font-family:var(--f-mono);font-size:11px;opacity:.8}
-.qlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
-.q.taken{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
-.q.passed{opacity:.5}
-.qtop{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px;color:var(--muted)}
-.qtop .why{font-family:var(--f-mono)}
-.q a.title{font-size:15.5px;font-weight:600;color:var(--ink);text-decoration:none;text-wrap:pretty}
+.areas{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.areas .lbl{font-size:14px;color:var(--muted);margin-right:4px}
+.chip{font:500 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip:hover{border-color:#8c8c8c}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#ffffff}
+.chip span{font-size:12px;opacity:.7}
+.feed{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.feed-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;padding:16px 24px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.feed-head b{color:var(--ink)}
+.qlist{list-style:none;margin:0;padding:0}
+.q{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px;padding:24px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.q.taken{background:#fbfefc;box-shadow:inset 3px 0 0 var(--green)}
+.q.passed{opacity:.45}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#ffffff;font-weight:600;font-size:17px;grid-row:span 4}
+.qmeta{font-size:15px;color:var(--ink);display:flex;flex-wrap:wrap;gap:0 6px;align-items:baseline}
+.qmeta .r{color:var(--muted)}
+.qmeta .cat{color:var(--muted);border-bottom:1px dashed #c8c8c8}
+.q a.title{font-size:18px;font-weight:700;color:var(--ink);text-decoration:none;text-wrap:pretty;display:inline-flex;gap:8px;align-items:center;margin-top:6px}
 .q a.title:hover{text-decoration:underline}
-.q p{margin:0;font-size:13.5px;color:var(--muted);overflow-wrap:anywhere}
-.qact{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.btn{font:500 13px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:6px 12px;cursor:pointer;text-decoration:none}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.empty{border:1px dashed var(--line);border-radius:10px;padding:24px;text-align:center;color:var(--muted)}
-.side{display:grid;gap:14px;align-content:start}
-.rules{margin:0;padding-left:18px;font-size:13.5px;display:grid;gap:6px}
-.impact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.impact div{display:grid;gap:2px}
-.impact b{font-family:var(--f-display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
-.impact span{font-size:12px;color:var(--muted)}
+.qmark{width:20px;height:20px;border-radius:50%;background:#bdbdbd;color:#ffffff;font-size:13px;font-weight:700;display:inline-grid;place-items:center;flex:none}
+.q p{margin:2px 0 0;font-size:15px;color:var(--text);overflow-wrap:anywhere}
+.qfoot{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;color:var(--muted);font-size:14px;margin-top:10px}
+.qfoot span{display:inline-flex;gap:6px;align-items:center}
+.qfoot .tag{background:var(--soft);border-radius:4px;padding:1px 8px;font-size:12.5px}
+.qfoot .nr{color:var(--warn);font-weight:500}
+.qact{display:flex;gap:8px;margin-left:auto}
+.btn{font:500 13px var(--f-body);border:1px solid var(--line);background:var(--surface);color:#1a1a1a;border-radius:8px;padding:6px 12px;cursor:pointer;text-decoration:none}
+.btn:hover{border-color:#8c8c8c}
+.btn.primary{background:#000000;border-color:#000000;color:#ffffff}
+.empty{padding:32px 24px;text-align:center;color:var(--muted)}
+.side{display:grid;gap:28px;align-content:start}
+.solved{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.solved a{font-size:16px;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.35}
+.solved a:hover{text-decoration:underline}
+.solved .chk{display:inline-block;width:20px;height:20px;vertical-align:-4px;margin-left:6px}
+.solved .by{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+.rules{margin:0;padding-left:18px;font-size:14px;color:var(--text);display:grid;gap:6px}
+.howbox{background:var(--soft);border-radius:16px;padding:20px;display:grid;gap:10px}
 
 /* Team view */
-.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:4px;align-content:start;position:relative}
-.step .num{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1.1;font-variant-numeric:tabular-nums}
-.step .lab{font-size:13px;font-weight:600}
-.step .def{font-size:12.5px;color:var(--muted)}
-.step.hot{background:var(--accent-soft);border-color:transparent}
-.step .meter{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:6px}
-.step .meter i{display:block;height:100%;background:var(--accent)}
-.route{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.route li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;font-size:13.5px;align-items:center}
-.route .bar{grid-column:1/-1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:4px;align-content:start}
+.step .num{font-weight:700;font-size:32px;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.step .lab{font-size:14px;font-weight:600}
+.step .def{font-size:13px;color:var(--muted)}
+.step.hot{border-color:var(--green)}
+.step .meter{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;margin-top:8px}
+.step .meter i{display:block;height:100%;background:var(--green)}
+.route{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.route li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;font-size:14px;align-items:center}
+.route .bar{grid-column:1/-1;height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
 .route .bar i{display:block;height:100%}
-.route .c{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
+.route .c{font-variant-numeric:tabular-nums;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 #chart{width:100%;height:auto;display:block}
 .compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.compare div{border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:2px}
-.compare b{font-family:var(--f-display);font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
-.compare span{font-size:12.5px;color:var(--muted)}
-.compare .after{background:var(--accent-soft);border-color:transparent}
+.compare div{background:var(--soft);border-radius:12px;padding:14px;display:grid;gap:2px}
+.compare b{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.compare span{font-size:13px;color:var(--muted)}
+.compare .after{background:var(--green-soft)}
+.compare .after b{color:var(--green-ink)}
 .tablewrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:720px}
-th{text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
-td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
-td .meta{display:block;font-size:12px;color:var(--muted)}
-.guide{font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+th{text-align:left;font-size:13px;color:var(--muted);font-weight:500;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:14px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td .meta{display:block;font-size:13px;color:var(--muted)}
+.guide{font-weight:700}
 .plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
-.plan li{border-top:2px solid var(--accent);padding-top:10px;font-size:13px;display:grid;gap:4px;align-content:start}
-.plan .wk{font-family:var(--f-mono);font-size:11.5px;color:var(--accent)}
-.plan b{font-size:14px}
-.plan .m{font-size:12px;color:var(--muted)}
+.plan li{background:var(--soft);border-radius:12px;padding:16px;font-size:14px;display:grid;gap:4px;align-content:start}
+.plan .wk{font-size:13px;font-weight:500;color:var(--muted)}
+.plan b{font-size:15px}
+.plan .m{font-size:13px;color:var(--muted)}
 .keep{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.keep div{border-radius:8px;padding:12px;font-size:13px;display:grid;gap:6px;align-content:start}
-.keep .yes{background:var(--accent-soft)}
-.keep .no{background:var(--warn-soft)}
+.keep div{border-radius:12px;padding:14px;font-size:14px;display:grid;gap:6px;align-content:start}
+.keep .yes{background:var(--green-soft)}
+.keep .no{background:var(--soft)}
 .keep ul{margin:0;padding-left:18px;display:grid;gap:3px}
-.src{font-size:12.5px;color:var(--muted);margin:0;padding-left:18px;display:grid;gap:4px}
+.src{font-size:13px;color:var(--muted);margin:0;padding-left:18px;display:grid;gap:4px}
 @media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}.funnel,.plan{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.funnel,.plan,.keep,.compare,.impact{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.q{grid-template-columns:minmax(0,1fr);padding:18px 16px}.av{display:none}.qact{margin-left:0;width:100%}.feed-head{padding:14px 16px}.tabs a{font-size:17px}.tabs small{display:none}.funnel,.plan,.keep,.compare{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:no-preference){.step .meter i,.route .bar i{transition:width .3s ease}}
 </style>
 <style>body{margin:0}</style>
@@ -144,36 +155,36 @@ td .meta{display:block;font-size:12px;color:var(--muted)}
 
   <!-- AMBASSADOR VIEW -->
   <section class="view" id="ambassador" role="tabpanel" aria-labelledby="tab-ambassador">
-    <div class="hello">
-      <div>
-        <h2>Your weekly digest</h2>
-        <p class="muted">Pick the areas you like helping with. You'll get up to five open questions a week. Ignore it whenever you're busy.</p>
-      </div>
-      <span class="pill line" id="digest-count"></span>
-    </div>
-    <div class="chips" id="chips" role="group" aria-label="Your areas"></div>
+    <div class="areas" id="chips" role="group" aria-label="Your areas"></div>
 
     <div class="grid2">
-      <div style="display:grid;gap:10px;align-content:start;min-width:0">
+      <div class="feed">
+        <div class="feed-head"><span><b>Picked for you this week</b> · open questions in your areas</span><span id="digest-count"></span></div>
         <ul class="qlist" id="qlist"></ul>
       </div>
       <aside class="side">
-        <div class="panel">
+        <div>
+          <h2 style="margin-bottom:16px">Solved by the community</h2>
+          <ul class="solved">
+            <li><a href="https://forum.figma.com/ask-the-community-7/make-auto-layout-frames-extend-upwards-57477" target="_blank" rel="noopener">Make auto layout frames extend upwards<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Ondrej_Pavlicek · Ambassador</span></li>
+            <li><a href="https://forum.figma.com/ask-the-community-7/is-there-a-way-i-can-use-an-older-version-of-figma-reverse-an-update-59673" target="_blank" rel="noopener">Is there a way I can use an older version of Figma?<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Haroll · Ambassador</span></li>
+            <li><a href="https://forum.figma.com/ask-the-community-7/my-prototype-isn-t-going-onto-my-website-59506" target="_blank" rel="noopener">My prototype isn't going onto my website<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">NeoTang · New Member</span></li>
+            <li><a href="https://forum.figma.com/ask-the-community-7/fill-container-option-missing-on-nested-text-layer-inside-a-component-auto-layout-59426" target="_blank" rel="noopener">“Fill container” missing on a nested text layer<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Ondrej_Pavlicek · Ambassador</span></li>
+            <li><a href="https://forum.figma.com/ask-the-community-7/i-don-t-understand-why-i-keep-getting-the-not-used-within-component-error-59101" target="_blank" rel="noopener">Why do I keep getting the “Not used within component” error?<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Lucas West- · New Participant</span></li>
+          </ul>
+        </div>
+        <div class="howbox">
           <h3>How questions are picked</h3>
           <ol class="rules">
             <li>Only how-to and workflow questions from Ask the Community</li>
-            <li>Questions nobody has answered come first, then the ones more people have viewed</li>
-            <li>Billing, account access, plugin reviews and bugs stay with Figma Support, so you won't see them</li>
+            <li>No replies yet comes first, then the most viewed</li>
+            <li>Billing, account access, plugin reviews and bugs stay with Figma Support</li>
+            <li>Up to five a week. Skip it whenever you're busy.</li>
           </ol>
         </div>
-        <div class="panel">
+        <div class="howbox">
           <h3>Your answers, reused</h3>
-          <p class="muted">When an answer is marked as the solution and shows a workflow other people will need, the community team may ask to turn it into a short guide credited to you.</p>
-          <div class="impact">
-            <div><b>10</b><span>accepted answers by community members in 12 weeks</span></div>
-            <div><b>6</b><span>of them could become guides</span></div>
-            <div><b>10</b><span>newcomers helped</span></div>
-          </div>
+          <p class="muted" style="color:var(--text)">When your answer is marked as the solution and explains a workflow others will need, the community team may ask to turn it into a short guide credited to you.</p>
         </div>
       </aside>
     </div>
@@ -192,7 +203,7 @@ td .meta{display:block;font-size:12px;color:var(--muted)}
       <section class="panel" aria-labelledby="t-base">
         <div class="panel-head">
           <h2 id="t-base">Baseline: who writes the accepted answer</h2>
-          <div class="legend"><span><i style="background:var(--accent)"></i>Community</span><span><i style="background:var(--staff)"></i>Figma staff</span><span><i style="background:var(--self)"></i>Asker</span></div>
+          <div class="legend"><span><i style="background:var(--green)"></i>Community</span><span><i style="background:var(--staff)"></i>Figma staff</span><span><i style="background:var(--self)"></i>Asker</span></div>
         </div>
         <svg id="chart" viewBox="0 0 560 250" role="img" aria-label="Weekly accepted answers in Ask the Community, with the Ambassador launch on 26 October marked"></svg>
         <div class="compare">
@@ -257,9 +268,9 @@ td .meta{display:block;font-size:12px;color:var(--muted)}
 </div>
 
 <script>
-const DIGEST = [{"area":"Auto layout & components","t":"Horizontal Auto-Layout Ignoring Fill Widths","url":"https://forum.figma.com/ask-the-community-7/horizontal-auto-layout-ignoring-fill-widths-58892","ex":" I’ve got two frames set to fill the width of their parent container. One of them (with text inside) has 24px padding set on the L+R. This seems to me","views":299,"replies":2,"age":"27 days ago"},{"area":"Auto layout & components","t":"How can I stop cards from stretching unevenly in a wrapping auto layout row?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-stop-cards-from-stretching-unevenly-in-a-wrapping-auto-layout-row-59485","ex":" Hi everyone, I am working on a simple card grid for a dashboard and I am stuck on how auto layout handles wrapping rows. I have a horizontal auto lay","views":34,"replies":2,"age":"6 days ago"},{"area":"Auto layout & components","t":"problem with the card componets","url":"https://forum.figma.com/ask-the-community-7/problem-with-the-card-componets-59626","ex":" Hi guysI have some problem with my product card componets.I want to do the hover which when you hover on the cards, the picture would be a little bit","views":101,"replies":6,"age":"7 days ago"},{"area":"Auto layout & components","t":"Component hovering issue","url":"https://forum.figma.com/ask-the-community-7/component-hovering-issue-59015","ex":" I attached a short video about My problem, What's wrong? This is the first time I see issue like this. ","views":12,"replies":0,"age":"26 days ago"},{"area":"Auto layout & components","t":"Weird display way larger than the actual vector boundary (component)","url":"https://forum.figma.com/ask-the-community-7/weird-display-way-larger-than-the-actual-vector-boundary-component-59047","ex":" I attached an image.When I drag and drop the instance, the display is fixed.How can I fix the issue ? Where does it come from ?Thanks ! ","views":54,"replies":1,"age":"15 days ago"},{"area":"Auto layout & components","t":"Auto-layout breaking on responsive web dashboard prototype","url":"https://forum.figma.com/ask-the-community-7/auto-layout-breaking-on-responsive-web-dashboard-prototype-59152","ex":" Hi everyone, I am currently putting together a responsive gaming client concept in Figma, taking inspiration from the interface structure found on th","views":79,"replies":3,"age":"18 days ago"},{"area":"Auto layout & components","t":"Customizing Properties","url":"https://forum.figma.com/ask-the-community-7/customizing-properties-59129","ex":" Hello:I am new to Figma. I asked my AI to build a basic Home Screen for a project. When it created it, it made a bunch of categories in properties wh","views":321,"replies":1,"age":"22 days ago"},{"area":"Design systems & variables","t":"Overrides reset after publishing a library component update. Any way to prevent this?","url":"https://forum.figma.com/ask-the-community-7/overrides-reset-after-publishing-a-library-component-update-any-way-to-prevent-this-58579","ex":" I have a chip component in our design system library (1 text layer + 2 icon instances). When I make changes to it and publish, then accept the update","views":295,"replies":1,"age":"27 days ago"},{"area":"Design systems & variables","t":"Best way to structure reusable Figma components for a skincare product page and educational blog?","url":"https://forum.figma.com/ask-the-community-7/best-way-to-structure-reusable-figma-components-for-a-skincare-product-page-and-educational-blog-59312","ex":" Hi everyone,I'm working on a mobile-first Figma design system for a kids' skincare and wellness website. I want to make the product pages and educati","views":211,"replies":1,"age":"7 days ago"},{"area":"Design systems & variables","t":"Best practices for designing bilingual Hijri/Gregorian date picker components in Figma?","url":"https://forum.figma.com/ask-the-community-7/best-practices-for-designing-bilingual-hijri-gregorian-date-picker-components-in-figma-58288","ex":" Hi Figma community,I’m working on a public date conversion tool at dateconvertersa.com that helps Arabic-speaking users switch between Hijri and Greg","views":121,"replies":1,"age":"15 days ago"},{"area":"Design systems & variables","t":"How to structure variants and variables for an auction app, with bid states and a countdown timer, so the prototype and Dev Mode handoff stay clean?","url":"https://forum.figma.com/ask-the-community-7/how-to-structure-variants-and-variables-for-an-auction-app-with-bid-states-and-a-countdown-timer-so-the-prototype-and-dev-mode-handoff-stay-clean-59394","ex":" Hi everyone,I am designing the screens for a mobile auction app in Figma Design and would like advice on how to structure the file before it grows. I","views":84,"replies":0,"age":"13 days ago"},{"area":"Design systems & variables","t":"Figma Library Adding Issue","url":"https://forum.figma.com/ask-the-community-7/figma-library-adding-issue-59209","ex":" First I created a new Figma design file A in the team XYZ then, I was able to see my organization library PQR, I added , then with some reason I remo","views":24,"replies":1,"age":"19 days ago"},{"area":"Design systems & variables","t":"Figma Branching: How can we identify and resolve conflicts at the layer level?","url":"https://forum.figma.com/ask-the-community-7/figma-branching-how-can-we-identify-and-resolve-conflicts-at-the-layer-level-59421","ex":" Hi everyone,I'm facing an issue with Figma's branching and merging workflow, and I'd like to know if anyone else has experienced the same problem or ","views":178,"replies":2,"age":"10 days ago"},{"area":"Design systems & variables","t":"Did anyone find a plugin that can read Extended Collections?","url":"https://forum.figma.com/ask-the-community-7/did-anyone-find-a-plugin-that-can-read-extended-collections-56118","ex":" I’m trying to find a plugin for exporting variables. I was very happy with Variables2css because it has alias fallbacks. But it won’t run at all if t","views":82,"replies":2,"age":"12 days ago"},{"area":"Prototyping & sharing","t":"Suddenly Can't Use PS Button (Home) for Prototyping","url":"https://forum.figma.com/ask-the-community-7/suddenly-can-t-use-ps-button-home-for-prototyping-55193","ex":" Hello,I've been using Figma for a while, and I've been able to use PS5 DualSense's PS button to trigger interactions. However, I recently updated and","views":93,"replies":2,"age":"28 days ago"},{"area":"Prototyping & sharing","t":"Comment partager un prototype sans permettre l'accès au fichier design ?","url":"https://forum.figma.com/ask-the-community-7/comment-partager-un-prototype-sans-permettre-l-acces-au-fichier-design-59761","ex":" Bonjour ! Je suis webdesigner, et j’ai pour habitude de partager le prototype de mes maquettes graphiques à mes clients. Avant, je pouvais leur parta","views":27,"replies":0,"age":"5 days ago"},{"area":"Prototyping & sharing","t":"Framed too Zoomed in on Presentation Mode","url":"https://forum.figma.com/ask-the-community-7/framed-too-zoomed-in-on-presentation-mode-59049","ex":" Can anyone assist me with getting my prototype to fit into the frame when in presentation mode. It fits perfectly when I preview the prototype but as","views":80,"replies":3,"age":"25 days ago"},{"area":"FigJam","t":"Why don’t connector lines work properly with frame instances?","url":"https://forum.figma.com/ask-the-community-7/why-don-t-connector-lines-work-properly-with-frame-instances-58999","ex":" When using FigJam connector lines to map user flows in a Figma design file, I can attach either end of a connector line to any element within a regul","views":32,"replies":2,"age":"26 days ago"},{"area":"Figma Make & AI","t":"Can a Weave MCP run be restored into an editable Canvas workflow?","url":"https://forum.figma.com/ask-the-community-7/can-a-weave-mcp-run-be-restored-into-an-editable-canvas-workflow-58949","ex":" Hi everyone!I'm using Figma Weave with Seedance 2.5 Reference through the official Figma MCP integration in Codex.My Canvas workflow is connected to ","views":42,"replies":1,"age":"27 days ago"},{"area":"Figma Make & AI","t":"Figma Chrome extension plugin - capture design - images not pasting","url":"https://forum.figma.com/ask-the-community-7/figma-chrome-extension-plugin-capture-design-images-not-pasting-59940","ex":" Some websites when i capture the design using the Figma chrome extension and paste it into Figma, some, or all images aren’t pasting through and some","views":5,"replies":1,"age":"18 hours ago"},{"area":"Figma Make & AI","t":"Any tips for making Figma AI Agent credits last longer?","url":"https://forum.figma.com/ask-the-community-7/any-tips-for-making-figma-ai-agent-credits-last-longer-58719","ex":" I feel like my AI Agent credits run out pretty quickly, even when I’m only using it for a few design tasks.What kind of workflow do you use to make y","views":67,"replies":1,"age":"23 days ago"},{"area":"Figma Make & AI","t":"How to Send a Frame Directly to Figma Make","url":"https://forum.figma.com/ask-the-community-7/how-to-send-a-frame-directly-to-figma-make-59435","ex":" Hi, after the latest update, “Send to Figma Make” seems to have been replaced by “Build with code.”How can I send a frame directly to Figma Make with","views":113,"replies":2,"age":"12 days ago"},{"area":"Figma Make & AI","t":"UI image to Figma converstion?","url":"https://forum.figma.com/ask-the-community-7/ui-image-to-figma-converstion-57093","ex":" Hi all,I have a UI dashboard design as an Image, and looking to convert it into a Figma Design, i have used plugins: Convert to Figma Design and Code","views":33,"replies":1,"age":"12 days ago"},{"area":"Figma Make & AI","t":"Code Layers using chrome extention","url":"https://forum.figma.com/ask-the-community-7/code-layers-using-chrome-extention-59250","ex":" i am trying to use the code layers feature in figma beta app but shows pasting as code layers is not available to you, is this feature invite only or","views":191,"replies":5,"age":"13 days ago"},{"area":"Figma Make & AI","t":"Taking a website design made with maker to an editable design that can be imported to Wordpress/Elementor in the future","url":"https://forum.figma.com/ask-the-community-7/taking-a-website-design-made-with-maker-to-an-editable-design-that-can-be-imported-to-wordpress-elementor-in-the-future-51867","ex":" Hi i need some help, i am trying out Figma and I’ve developed a website design in maker that my client is super happy with and now need to move it to","views":65,"replies":3,"age":"5 days ago"},{"area":"Dev Mode, MCP & code","t":"Connecting Figma’s remote MCP server to a third-party MCP gateway (TrueFoundry) via OAuth. Has anyone made this work?","url":"https://forum.figma.com/ask-the-community-7/connecting-figma-s-remote-mcp-server-to-a-third-party-mcp-gateway-truefoundry-via-oauth-has-anyone-made-this-work-59297","ex":" I’m trying to connect https://mcp.figma.com/mcp to TrueFoundry’s MCP gateway using OAuth2 (Authorization Code + PKCE, DCR registration, scope mcp:con","views":101,"replies":0,"age":"16 days ago"},{"area":"Dev Mode, MCP & code","t":"unable to aurhorise Figma MCP in VS Code","url":"https://forum.figma.com/ask-the-community-7/unable-to-aurhorise-figma-mcp-in-vs-code-59778","ex":" Hi,I am struggling to get vs code to connect to the figma MCPI have the Figma MCP Server install in VS Code is says it it is running.I receive a auth","views":39,"replies":0,"age":"5 days ago"},{"area":"Dev Mode, MCP & code","t":"QA of the live website/app against the Figma designs after developer deployment","url":"https://forum.figma.com/ask-the-community-7/qa-of-the-live-website-app-against-the-figma-designs-after-developer-deployment-59773","ex":" Hi fellow designers and developers!I'm looking for the best tool (AI-powered or a working plugin) for design QA after developers deploy a website or ","views":51,"replies":0,"age":"5 days ago"},{"area":"Dev Mode, MCP & code","t":"How to optimize Figma vector exports & layout tokens for Core Web Vitals (INP/LCP) in UK enterprise builds?","url":"https://forum.figma.com/ask-the-community-7/how-to-optimize-figma-vector-exports-layout-tokens-for-core-web-vitals-inp-lcp-in-uk-enterprise-builds-59744","ex":" Hi everyone,When collaborating on enterprise web design and design-system implementations for UK clients, one recurring bottleneck our engineering te","views":63,"replies":0,"age":"5 days ago"},{"area":"Dev Mode, MCP & code","t":"Retrieve signed-in user identity via SSO in a Figma app","url":"https://forum.figma.com/ask-the-community-7/retrieve-signed-in-user-identity-via-sso-in-a-figma-app-59823","ex":" Hi everyone,Is there a way for a Figma make published app to retrieve the identity of the currently signed-in user through SSO?Our organisation alrea","views":6,"replies":0,"age":"4 days ago"},{"area":"Workflows & tips","t":"Figma Flow design for Klaviyo","url":"https://forum.figma.com/ask-the-community-7/figma-flow-design-for-klaviyo-54648","ex":" Hi, I need to transfer over a design for a Klaviyo email flow from figma to Klaviyo...it is a copy and paste situtaion? I’m very new to this so any a","views":39,"replies":1,"age":"27 days ago"},{"area":"Workflows & tips","t":"How to cross-link CMS articles?","url":"https://forum.figma.com/ask-the-community-7/how-to-cross-link-cms-articles-51923","ex":" With a nice collection of CMS articles in Figma I could not figure out how to cross-link them. I was about to add a link to the content in rich text ","views":63,"replies":2,"age":"7 days ago"},{"area":"Workflows & tips","t":"How can i use the Figma x Sanrio collab function?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-use-the-figma-x-sanrio-collab-function-59600","ex":" So excited the new launch of Figma x Sanrio. I tried to open the Figjam file but nothing Sanrio related stuff happen. Really want to change my Figpal","views":464,"replies":7,"age":"7 days ago"},{"area":"Workflows & tips","t":"What useful, problem-solving Figma plugin do you think is still missing in 2026?","url":"https://forum.figma.com/ask-the-community-7/what-useful-problem-solving-figma-plugin-do-you-think-is-still-missing-in-2026-58008","ex":" I’m interested in tools that solve a real, frustrating problem or save significant time—not another generic AI design tool.What task do you still fin","views":162,"replies":2,"age":"27 days ago"},{"area":"Workflows & tips","t":"Help balancing these visuals","url":"https://forum.figma.com/ask-the-community-7/help-balancing-these-visuals-59531","ex":" Hi. I just started figma yesterday. I made a decent mockup of a tool I wanted to make, except that I did it all by freehand. I am trying to remake th","views":79,"replies":2,"age":"8 days ago"},{"area":"Workflows & tips","t":"Balsamiq to Figma","url":"https://forum.figma.com/ask-the-community-7/balsamiq-to-figma-58893","ex":" Hi there!A few months ago, our campany merged with another one whose designers used to work with Balsamiq. They’ve just migrated to our Figma organiz","views":350,"replies":0,"age":"29 days ago"},{"area":"Workflows & tips","t":"Change Figma plan/organization profile picture","url":"https://forum.figma.com/ask-the-community-7/change-figma-plan-organization-profile-picture-59505","ex":" How do I edit an organization (or a plan)’s profile picture?I am an admin of this “💡 DCC” organization. I want to change the blue icon. Clicking Sett","views":65,"replies":2,"age":"8 hours ago"},{"area":"Workflows & tips","t":"Remap alt-right shortcut to duplicate on Windows","url":"https://forum.figma.com/ask-the-community-7/remap-alt-right-shortcut-to-duplicate-on-windows-59955","ex":" I’ve been using a Mac for the past 20 years. Because of security policies within our company I switched to a Windows machine last week. I'm left-hand","views":19,"replies":0,"age":"15 hours ago"},{"area":"Workflows & tips","t":"Feedback to improve my case study","url":"https://forum.figma.com/ask-the-community-7/feedback-to-improve-my-case-study-54740","ex":" Hi All,I've completed two UX projects and am currently working on my third. However, despite applying for roles, I'm not receiving many interview cal","views":35,"replies":1,"age":"23 days ago"},{"area":"Workflows & tips","t":"hwo do you keep a simple website design from looking too plain?","url":"https://forum.figma.com/ask-the-community-7/hwo-do-you-keep-a-simple-website-design-from-looking-too-plain-58209","ex":" Im working on a small website and im trying to keep the design simple without the page feel empty. i usually prefer a clean layout with limited color","views":43,"replies":1,"age":"23 days ago"},{"area":"Workflows & tips","t":"How do Mac designers manage clipboard history when working in Figma?","url":"https://forum.figma.com/ask-the-community-7/how-do-mac-designers-manage-clipboard-history-when-working-in-figma-59042","ex":" When working on UI designs, I often find myself copying and pasting the same kinds of things throughout the day: text snippets, color values, screens","views":25,"replies":1,"age":"25 days ago"},{"area":"Workflows & tips","t":"Why are not all selected files being exported?","url":"https://forum.figma.com/ask-the-community-7/why-are-not-all-selected-files-being-exported-59216","ex":" I keep running into the problem that I select, say, 5 files to export, but the downloaded zip file contains only 2. I don’t receive any kind of error","views":75,"replies":3,"age":"13 days ago"},{"area":"Workflows & tips","t":"How can I disable AI features? All of them.","url":"https://forum.figma.com/ask-the-community-7/how-can-i-disable-ai-features-all-of-them-54862","ex":" Hello,I’m a designer, I don’t need AI doing my work and nagging me constantly in the interface. It doesn’t work, it’s useless and I don’t want it.It’","views":1761,"replies":7,"age":"13 days ago"},{"area":"Workflows & tips","t":"File Size - PDF","url":"https://forum.figma.com/ask-the-community-7/file-size-pdf-59114","ex":" I work in Figma to create analytical reports containing mostly text, but also images and tables, each report is 20+ pages long and each export result","views":48,"replies":1,"age":"22 days ago"},{"area":"Workflows & tips","t":"Figma Text formatting issues","url":"https://forum.figma.com/ask-the-community-7/figma-text-formatting-issues-59123","ex":" Hello community,We are experiencing a recurring typography-formatting issue in Figma that is affecting our production workflow.Observed issues:Supers","views":41,"replies":1,"age":"22 days ago"},{"area":"Workflows & tips","t":"I’m looking for a more efficient workflow in Figma","url":"https://forum.figma.com/ask-the-community-7/i-m-looking-for-a-more-efficient-workflow-in-figma-59399","ex":" How do you manage localized screenshots when the same design changes need to be applied across multiple languages? Are there any best practices invol","views":45,"replies":1,"age":"10 days ago"}];
+const DIGEST = [{"area":"Auto layout & components","t":"Horizontal Auto-Layout Ignoring Fill Widths","url":"https://forum.figma.com/ask-the-community-7/horizontal-auto-layout-ignoring-fill-widths-58892","ex":" I’ve got two frames set to fill the width of their parent container. One of them (with text inside) has 24px padding set on the L+R. This seems to me","views":299,"replies":2,"age":"27 days ago","user":"Naomi_Adkins","rank":"Active Member","likes":0},{"area":"Auto layout & components","t":"How can I stop cards from stretching unevenly in a wrapping auto layout row?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-stop-cards-from-stretching-unevenly-in-a-wrapping-auto-layout-row-59485","ex":" Hi everyone, I am working on a simple card grid for a dashboard and I am stuck on how auto layout handles wrapping rows. I have a horizontal auto lay","views":34,"replies":2,"age":"6 days ago","user":"mith sams","rank":"New Participant","likes":0},{"area":"Auto layout & components","t":"problem with the card componets","url":"https://forum.figma.com/ask-the-community-7/problem-with-the-card-componets-59626","ex":" Hi guysI have some problem with my product card componets.I want to do the hover which when you hover on the cards, the picture would be a little bit","views":101,"replies":6,"age":"7 days ago","user":"maryam0808","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Component hovering issue","url":"https://forum.figma.com/ask-the-community-7/component-hovering-issue-59015","ex":" I attached a short video about My problem, What's wrong? This is the first time I see issue like this. ","views":12,"replies":0,"age":"26 days ago","user":"Ali Shahabi","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Weird display way larger than the actual vector boundary (component)","url":"https://forum.figma.com/ask-the-community-7/weird-display-way-larger-than-the-actual-vector-boundary-component-59047","ex":" I attached an image.When I drag and drop the instance, the display is fixed.How can I fix the issue ? Where does it come from ?Thanks ! ","views":54,"replies":1,"age":"15 days ago","user":"Hugo-M","rank":"New Participant","likes":0},{"area":"Auto layout & components","t":"Auto-layout breaking on responsive web dashboard prototype","url":"https://forum.figma.com/ask-the-community-7/auto-layout-breaking-on-responsive-web-dashboard-prototype-59152","ex":" Hi everyone, I am currently putting together a responsive gaming client concept in Figma, taking inspiration from the interface structure found on th","views":79,"replies":3,"age":"18 days ago","user":"ethan_carter_87","rank":"New Member","likes":0},{"area":"Auto layout & components","t":"Customizing Properties","url":"https://forum.figma.com/ask-the-community-7/customizing-properties-59129","ex":" Hello:I am new to Figma. I asked my AI to build a basic Home Screen for a project. When it created it, it made a bunch of categories in properties wh","views":321,"replies":1,"age":"22 days ago","user":"Dsync","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Overrides reset after publishing a library component update. Any way to prevent this?","url":"https://forum.figma.com/ask-the-community-7/overrides-reset-after-publishing-a-library-component-update-any-way-to-prevent-this-58579","ex":" I have a chip component in our design system library (1 text layer + 2 icon instances). When I make changes to it and publish, then accept the update","views":295,"replies":1,"age":"27 days ago","user":"Mahzyar Soodmand","rank":"New Member","likes":1},{"area":"Design systems & variables","t":"Best way to structure reusable Figma components for a skincare product page and educational blog?","url":"https://forum.figma.com/ask-the-community-7/best-way-to-structure-reusable-figma-components-for-a-skincare-product-page-and-educational-blog-59312","ex":" Hi everyone,I'm working on a mobile-first Figma design system for a kids' skincare and wellness website. I want to make the product pages and educati","views":211,"replies":1,"age":"7 days ago","user":"careprereq","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Best practices for designing bilingual Hijri/Gregorian date picker components in Figma?","url":"https://forum.figma.com/ask-the-community-7/best-practices-for-designing-bilingual-hijri-gregorian-date-picker-components-in-figma-58288","ex":" Hi Figma community,I’m working on a public date conversion tool at dateconvertersa.com that helps Arabic-speaking users switch between Hijri and Greg","views":121,"replies":1,"age":"15 days ago","user":"Omar765","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"How to structure variants and variables for an auction app, with bid states and a countdown timer, so the prototype and Dev Mode handoff stay clean?","url":"https://forum.figma.com/ask-the-community-7/how-to-structure-variants-and-variables-for-an-auction-app-with-bid-states-and-a-countdown-timer-so-the-prototype-and-dev-mode-handoff-stay-clean-59394","ex":" Hi everyone,I am designing the screens for a mobile auction app in Figma Design and would like advice on how to structure the file before it grows. I","views":84,"replies":0,"age":"13 days ago","user":"taniya.mittalusa","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Figma Library Adding Issue","url":"https://forum.figma.com/ask-the-community-7/figma-library-adding-issue-59209","ex":" First I created a new Figma design file A in the team XYZ then, I was able to see my organization library PQR, I added , then with some reason I remo","views":24,"replies":1,"age":"19 days ago","user":"Ravi Ranjan","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Figma Branching: How can we identify and resolve conflicts at the layer level?","url":"https://forum.figma.com/ask-the-community-7/figma-branching-how-can-we-identify-and-resolve-conflicts-at-the-layer-level-59421","ex":" Hi everyone,I'm facing an issue with Figma's branching and merging workflow, and I'd like to know if anyone else has experienced the same problem or ","views":178,"replies":2,"age":"10 days ago","user":"ramsai velaga","rank":"New Member","likes":0},{"area":"Design systems & variables","t":"Did anyone find a plugin that can read Extended Collections?","url":"https://forum.figma.com/ask-the-community-7/did-anyone-find-a-plugin-that-can-read-extended-collections-56118","ex":" I’m trying to find a plugin for exporting variables. I was very happy with Variables2css because it has alias fallbacks. But it won’t run at all if t","views":82,"replies":2,"age":"12 days ago","user":"Julia57","rank":"Active Member","likes":0},{"area":"Prototyping & sharing","t":"Suddenly Can't Use PS Button (Home) for Prototyping","url":"https://forum.figma.com/ask-the-community-7/suddenly-can-t-use-ps-button-home-for-prototyping-55193","ex":" Hello,I've been using Figma for a while, and I've been able to use PS5 DualSense's PS button to trigger interactions. However, I recently updated and","views":93,"replies":2,"age":"28 days ago","user":"Duarte_Edan","rank":"New Member","likes":0},{"area":"Prototyping & sharing","t":"Comment partager un prototype sans permettre l'accès au fichier design ?","url":"https://forum.figma.com/ask-the-community-7/comment-partager-un-prototype-sans-permettre-l-acces-au-fichier-design-59761","ex":" Bonjour ! Je suis webdesigner, et j’ai pour habitude de partager le prototype de mes maquettes graphiques à mes clients. Avant, je pouvais leur parta","views":27,"replies":0,"age":"5 days ago","user":"G_comme_une_idee","rank":"New Member","likes":0},{"area":"Prototyping & sharing","t":"Framed too Zoomed in on Presentation Mode","url":"https://forum.figma.com/ask-the-community-7/framed-too-zoomed-in-on-presentation-mode-59049","ex":" Can anyone assist me with getting my prototype to fit into the frame when in presentation mode. It fits perfectly when I preview the prototype but as","views":80,"replies":3,"age":"25 days ago","user":"Carmen van der Merwe","rank":"New Member","likes":0},{"area":"FigJam","t":"Why don’t connector lines work properly with frame instances?","url":"https://forum.figma.com/ask-the-community-7/why-don-t-connector-lines-work-properly-with-frame-instances-58999","ex":" When using FigJam connector lines to map user flows in a Figma design file, I can attach either end of a connector line to any element within a regul","views":32,"replies":2,"age":"26 days ago","user":"Tho Truong","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Can a Weave MCP run be restored into an editable Canvas workflow?","url":"https://forum.figma.com/ask-the-community-7/can-a-weave-mcp-run-be-restored-into-an-editable-canvas-workflow-58949","ex":" Hi everyone!I'm using Figma Weave with Seedance 2.5 Reference through the official Figma MCP integration in Codex.My Canvas workflow is connected to ","views":42,"replies":1,"age":"27 days ago","user":"VladisU","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Figma Chrome extension plugin - capture design - images not pasting","url":"https://forum.figma.com/ask-the-community-7/figma-chrome-extension-plugin-capture-design-images-not-pasting-59940","ex":" Some websites when i capture the design using the Figma chrome extension and paste it into Figma, some, or all images aren’t pasting through and some","views":5,"replies":1,"age":"18 hours ago","user":"Shannon Chen","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Any tips for making Figma AI Agent credits last longer?","url":"https://forum.figma.com/ask-the-community-7/any-tips-for-making-figma-ai-agent-credits-last-longer-58719","ex":" I feel like my AI Agent credits run out pretty quickly, even when I’m only using it for a few design tasks.What kind of workflow do you use to make y","views":67,"replies":1,"age":"23 days ago","user":"Super Indonesia","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"How to Send a Frame Directly to Figma Make","url":"https://forum.figma.com/ask-the-community-7/how-to-send-a-frame-directly-to-figma-make-59435","ex":" Hi, after the latest update, “Send to Figma Make” seems to have been replaced by “Build with code.”How can I send a frame directly to Figma Make with","views":113,"replies":2,"age":"12 days ago","user":"Ruoti Jacopo","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"UI image to Figma converstion?","url":"https://forum.figma.com/ask-the-community-7/ui-image-to-figma-converstion-57093","ex":" Hi all,I have a UI dashboard design as an Image, and looking to convert it into a Figma Design, i have used plugins: Convert to Figma Design and Code","views":33,"replies":1,"age":"12 days ago","user":"Sharath kumar","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Code Layers using chrome extention","url":"https://forum.figma.com/ask-the-community-7/code-layers-using-chrome-extention-59250","ex":" i am trying to use the code layers feature in figma beta app but shows pasting as code layers is not available to you, is this feature invite only or","views":191,"replies":5,"age":"13 days ago","user":"Abhishek5","rank":"New Member","likes":0},{"area":"Figma Make & AI","t":"Taking a website design made with maker to an editable design that can be imported to Wordpress/Elementor in the future","url":"https://forum.figma.com/ask-the-community-7/taking-a-website-design-made-with-maker-to-an-editable-design-that-can-be-imported-to-wordpress-elementor-in-the-future-51867","ex":" Hi i need some help, i am trying out Figma and I’ve developed a website design in maker that my client is super happy with and now need to move it to","views":65,"replies":3,"age":"5 days ago","user":"JT9876","rank":"New Member","likes":1},{"area":"Dev Mode, MCP & code","t":"Connecting Figma’s remote MCP server to a third-party MCP gateway (TrueFoundry) via OAuth. Has anyone made this work?","url":"https://forum.figma.com/ask-the-community-7/connecting-figma-s-remote-mcp-server-to-a-third-party-mcp-gateway-truefoundry-via-oauth-has-anyone-made-this-work-59297","ex":" I’m trying to connect https://mcp.figma.com/mcp to TrueFoundry’s MCP gateway using OAuth2 (Authorization Code + PKCE, DCR registration, scope mcp:con","views":101,"replies":0,"age":"16 days ago","user":"Eyal Tzaig","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"unable to aurhorise Figma MCP in VS Code","url":"https://forum.figma.com/ask-the-community-7/unable-to-aurhorise-figma-mcp-in-vs-code-59778","ex":" Hi,I am struggling to get vs code to connect to the figma MCPI have the Figma MCP Server install in VS Code is says it it is running.I receive a auth","views":39,"replies":0,"age":"5 days ago","user":"Richard_London","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"QA of the live website/app against the Figma designs after developer deployment","url":"https://forum.figma.com/ask-the-community-7/qa-of-the-live-website-app-against-the-figma-designs-after-developer-deployment-59773","ex":" Hi fellow designers and developers!I'm looking for the best tool (AI-powered or a working plugin) for design QA after developers deploy a website or ","views":51,"replies":0,"age":"5 days ago","user":"Nir Blustein","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"How to optimize Figma vector exports & layout tokens for Core Web Vitals (INP/LCP) in UK enterprise builds?","url":"https://forum.figma.com/ask-the-community-7/how-to-optimize-figma-vector-exports-layout-tokens-for-core-web-vitals-inp-lcp-in-uk-enterprise-builds-59744","ex":" Hi everyone,When collaborating on enterprise web design and design-system implementations for UK clients, one recurring bottleneck our engineering te","views":63,"replies":0,"age":"5 days ago","user":"KamranSunil","rank":"New Member","likes":0},{"area":"Dev Mode, MCP & code","t":"Retrieve signed-in user identity via SSO in a Figma app","url":"https://forum.figma.com/ask-the-community-7/retrieve-signed-in-user-identity-via-sso-in-a-figma-app-59823","ex":" Hi everyone,Is there a way for a Figma make published app to retrieve the identity of the currently signed-in user through SSO?Our organisation alrea","views":6,"replies":0,"age":"4 days ago","user":"You Shan Ang","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Figma Flow design for Klaviyo","url":"https://forum.figma.com/ask-the-community-7/figma-flow-design-for-klaviyo-54648","ex":" Hi, I need to transfer over a design for a Klaviyo email flow from figma to Klaviyo...it is a copy and paste situtaion? I’m very new to this so any a","views":39,"replies":1,"age":"27 days ago","user":"Alexandra John","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How to cross-link CMS articles?","url":"https://forum.figma.com/ask-the-community-7/how-to-cross-link-cms-articles-51923","ex":" With a nice collection of CMS articles in Figma I could not figure out how to cross-link them. I was about to add a link to the content in rich text ","views":63,"replies":2,"age":"7 days ago","user":"Géz","rank":"New Member","likes":2},{"area":"Workflows & tips","t":"How can i use the Figma x Sanrio collab function?","url":"https://forum.figma.com/ask-the-community-7/how-can-i-use-the-figma-x-sanrio-collab-function-59600","ex":" So excited the new launch of Figma x Sanrio. I tried to open the Figjam file but nothing Sanrio related stuff happen. Really want to change my Figpal","views":464,"replies":7,"age":"7 days ago","user":"BelleLi057","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"What useful, problem-solving Figma plugin do you think is still missing in 2026?","url":"https://forum.figma.com/ask-the-community-7/what-useful-problem-solving-figma-plugin-do-you-think-is-still-missing-in-2026-58008","ex":" I’m interested in tools that solve a real, frustrating problem or save significant time—not another generic AI design tool.What task do you still fin","views":162,"replies":2,"age":"27 days ago","user":"Galif Hasan","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Help balancing these visuals","url":"https://forum.figma.com/ask-the-community-7/help-balancing-these-visuals-59531","ex":" Hi. I just started figma yesterday. I made a decent mockup of a tool I wanted to make, except that I did it all by freehand. I am trying to remake th","views":79,"replies":2,"age":"8 days ago","user":"William69","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Balsamiq to Figma","url":"https://forum.figma.com/ask-the-community-7/balsamiq-to-figma-58893","ex":" Hi there!A few months ago, our campany merged with another one whose designers used to work with Balsamiq. They’ve just migrated to our Figma organiz","views":350,"replies":0,"age":"29 days ago","user":"BERTHELE","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Change Figma plan/organization profile picture","url":"https://forum.figma.com/ask-the-community-7/change-figma-plan-organization-profile-picture-59505","ex":" How do I edit an organization (or a plan)’s profile picture?I am an admin of this “💡 DCC” organization. I want to change the blue icon. Clicking Sett","views":65,"replies":2,"age":"8 hours ago","user":"Clement_Roze1","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Remap alt-right shortcut to duplicate on Windows","url":"https://forum.figma.com/ask-the-community-7/remap-alt-right-shortcut-to-duplicate-on-windows-59955","ex":" I’ve been using a Mac for the past 20 years. Because of security policies within our company I switched to a Windows machine last week. I'm left-hand","views":19,"replies":0,"age":"15 hours ago","user":"Chinkone","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Feedback to improve my case study","url":"https://forum.figma.com/ask-the-community-7/feedback-to-improve-my-case-study-54740","ex":" Hi All,I've completed two UX projects and am currently working on my third. However, despite applying for roles, I'm not receiving many interview cal","views":35,"replies":1,"age":"23 days ago","user":"Scorpio","rank":"New Member","likes":1},{"area":"Workflows & tips","t":"hwo do you keep a simple website design from looking too plain?","url":"https://forum.figma.com/ask-the-community-7/hwo-do-you-keep-a-simple-website-design-from-looking-too-plain-58209","ex":" Im working on a small website and im trying to keep the design simple without the page feel empty. i usually prefer a clean layout with limited color","views":43,"replies":1,"age":"23 days ago","user":"islabrown190","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How do Mac designers manage clipboard history when working in Figma?","url":"https://forum.figma.com/ask-the-community-7/how-do-mac-designers-manage-clipboard-history-when-working-in-figma-59042","ex":" When working on UI designs, I often find myself copying and pasting the same kinds of things throughout the day: text snippets, color values, screens","views":25,"replies":1,"age":"25 days ago","user":"vehlaapp","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Why are not all selected files being exported?","url":"https://forum.figma.com/ask-the-community-7/why-are-not-all-selected-files-being-exported-59216","ex":" I keep running into the problem that I select, say, 5 files to export, but the downloaded zip file contains only 2. I don’t receive any kind of error","views":75,"replies":3,"age":"13 days ago","user":"Iris L","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"How can I disable AI features? All of them.","url":"https://forum.figma.com/ask-the-community-7/how-can-i-disable-ai-features-all-of-them-54862","ex":" Hello,I’m a designer, I don’t need AI doing my work and nagging me constantly in the interface. It doesn’t work, it’s useless and I don’t want it.It’","views":1761,"replies":7,"age":"13 days ago","user":"Julien_Dedale","rank":"New Participant","likes":16},{"area":"Workflows & tips","t":"File Size - PDF","url":"https://forum.figma.com/ask-the-community-7/file-size-pdf-59114","ex":" I work in Figma to create analytical reports containing mostly text, but also images and tables, each report is 20+ pages long and each export result","views":48,"replies":1,"age":"22 days ago","user":"maria.tomilenko","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"Figma Text formatting issues","url":"https://forum.figma.com/ask-the-community-7/figma-text-formatting-issues-59123","ex":" Hello community,We are experiencing a recurring typography-formatting issue in Figma that is affecting our production workflow.Observed issues:Supers","views":41,"replies":1,"age":"22 days ago","user":"Midhun George","rank":"New Member","likes":0},{"area":"Workflows & tips","t":"I’m looking for a more efficient workflow in Figma","url":"https://forum.figma.com/ask-the-community-7/i-m-looking-for-a-more-efficient-workflow-in-figma-59399","ex":" How do you manage localized screenshots when the same design changes need to be applied across multiple languages? Are there any best practices invol","views":45,"replies":1,"age":"10 days ago","user":"Serhii30","rank":"New Member","likes":0}];
 const AREAS = ["Auto layout & components","Design systems & variables","Prototyping & sharing","FigJam","Figma Make & AI","Dev Mode, MCP & code","Workflows & tips"];
-const ROUTES = [["Suited to Ambassadors",46,"var(--accent)"],["Keep with Figma Support",12,"var(--warn)"],["Redirect: sponsorship or feature request",6,"var(--staff)"],["Moderate: spam",1,"var(--self)"]];
+const ROUTES = [["Suited to Ambassadors",46,"var(--green)"],["Keep with Figma Support",12,"var(--warn)"],["Redirect: sponsorship or feature request",6,"var(--staff)"],["Moderate: spam",1,"var(--self)"]];
 // Weekly accepted answers in Ask the Community, weeks starting Mon 17 Aug 2026: [community, staff, asker]
 const WEEKS = [[0,6,2],[0,11,0],[0,6,0],[1,9,0],[2,11,0],[0,11,0],[0,11,0],[0,8,1],[0,9,0],[3,8,0],[1,10,0],[3,6,1]];
 const WEEK_LABELS = ["17 Aug","24 Aug","31 Aug","7 Sep","14 Sep","21 Sep","28 Sep","5 Oct","12 Oct","19 Oct","26 Oct","2 Nov"];
@@ -271,33 +282,50 @@ const marks = {};
 try { const s = JSON.parse(localStorage.getItem("assist-areas")||"null"); if (Array.isArray(s) && s.length) picked = new Set(s); } catch(e){}
 
 function renderChips(){
-  $("chips").innerHTML = AREAS.map(a=>{
+  $("chips").innerHTML = `<span class="lbl">Your areas</span>` + AREAS.map(a=>{
     const n = DIGEST.filter(q=>q.area===a).length;
     return `<button class="chip" data-a="${esc(a)}" aria-pressed="${picked.has(a)}">${esc(a)} <span>${n}</span></button>`;
   }).join("");
 }
-function ageDays(s){ const m = /(\d+) (minute|hour|day)/.exec(s||""); if(!m) return 0; return m[2]==="day" ? +m[1] : 0; }
+const AVC = ["#f5b700","#3d5afe","#f08a3c","#9b51e0","#23a26d","#e5484d","#0aa5c9","#6e56cf"];
+const ICON = {
+  like:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21h3V10H2v11zm20-10c0-1.1-.9-2-2-2h-6.3l1-4.6v-.3c0-.4-.2-.8-.4-1.1L13.2 2 7.6 7.6c-.4.4-.6.9-.6 1.4V19c0 1.1.9 2 2 2h9c.8 0 1.5-.5 1.8-1.2l3-7.1c.1-.2.2-.5.2-.7v-1z"/></svg>',
+  view:'<svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.75C5.83 3.75 2.28 6.34.83 10c1.45 3.66 5 6.25 9.17 6.25s7.72-2.59 9.17-6.25C17.72 6.34 14.17 3.75 10 3.75zm0 10.42a4.17 4.17 0 110-8.34 4.17 4.17 0 010 8.34zM10 7.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></svg>',
+  reply:'<svg class="ico" viewBox="0 0 12 13" aria-hidden="true"><path d="M10.8.5H1.2C.54.5 0 1.04 0 1.7v10.8l2.4-2.4h8.4c.66 0 1.2-.54 1.2-1.2V1.7C12 1.04 11.46.5 10.8.5z"/></svg>'
+};
+function avatar(name){
+  let h = 0; for (const c of name) h = (h*31 + c.codePointAt(0)) >>> 0;
+  const ch = [...name.trim()][0] || "?";
+  return `<span class="av" style="background:${AVC[h%AVC.length]}" aria-hidden="true">${esc(ch.toUpperCase())}</span>`;
+}
 function renderDigest(){
   const pool = DIGEST.filter(q=>picked.has(q.area))
     .sort((a,b)=> (a.replies===0)!==(b.replies===0) ? (a.replies===0?-1:1) : (a.replies-b.replies) || (b.views-a.views));
   const list = pool.slice(0,5);
-  $("digest-count").textContent = `${list.length} of ${pool.length} matching questions this week`;
+  $("digest-count").textContent = `${list.length} of ${pool.length} matching`;
   if (!list.length){ $("qlist").innerHTML = `<li class="empty">Pick at least one area above to see this week's questions.</li>`; return; }
   $("qlist").innerHTML = list.map(q=>{
     const m = marks[q.url];
-    const why = q.replies===0 ? `<span class="pill warn">No replies yet</span>` : `<span class="pill line">${q.replies} ${q.replies===1?"reply":"replies"}, no solution</span>`;
     return `<li class="q ${m==="take"?"taken":m==="pass"?"passed":""}">
-      <div class="qtop">${why}<span>${esc(q.area)}</span><span class="why">${q.views} views · asked ${esc(q.age)}</span></div>
-      <a class="title" href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.t)}</a>
+      ${avatar(q.user)}
+      <div class="qmeta"><span>${esc(q.user)}</span><span class="r">${esc(q.rank)} ·</span><span class="r">Asked in</span><span class="cat">Ask the Community</span></div>
+      <a class="title" href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.t)}<span class="qmark" aria-hidden="true">?</span></a>
       <p>${esc(q.ex.trim())}…</p>
-      <div class="qact">
-        <button class="btn ${m==="take"?"primary":""}" data-u="${esc(q.url)}" data-m="take">${m==="take"?"You're on it":"I'll take this"}</button>
-        <button class="btn" data-u="${esc(q.url)}" data-m="pass">${m==="pass"?"Skipped":"Not for me"}</button>
-        <a class="btn" href="${esc(q.url)}" target="_blank" rel="noopener">Open thread ↗</a>
+      <div class="qfoot">
+        <span>${ICON.like}${q.likes}</span>
+        <span>${ICON.view}${q.views}</span>
+        <span class="${q.replies===0?"nr":""}">${ICON.reply}${q.replies===0?"No replies yet":q.replies}</span>
+        <span>${esc(q.age)}</span>
+        <span class="tag">${esc(q.area)}</span>
+        <span class="qact">
+          <button class="btn ${m==="take"?"primary":""}" data-u="${esc(q.url)}" data-m="take">${m==="take"?"You're on it":"I'll take this"}</button>
+          <button class="btn" data-u="${esc(q.url)}" data-m="pass">${m==="pass"?"Skipped":"Not for me"}</button>
+        </span>
       </div>
     </li>`;
   }).join("");
 }
+
 $("chips").addEventListener("click",e=>{
   const b = e.target.closest(".chip"); if(!b) return;
   const a = b.dataset.a; picked.has(a) ? picked.delete(a) : picked.add(a);
@@ -327,12 +355,12 @@ function drawChart(){
   WEEKS.forEach(([c,st,se],i)=>{
     const x = L + i*step + (step-bw)/2;
     let base = 0;
-    [[c,"var(--accent)"],[st,"var(--staff)"],[se,"var(--self)"]].forEach(([v,col])=>{
+    [[c,"var(--green)"],[st,"var(--staff)"],[se,"var(--self)"]].forEach(([v,col])=>{
       if(!v) return;
       s += `<rect x="${x}" y="${y(base+v)}" width="${bw}" height="${Math.max(0,y(base)-y(base+v)-1.5)}" fill="${col}" rx="2"/>`;
       base += v;
     });
-    if (c) s += `<text x="${x+bw/2}" y="${y(base)-4}" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--accent)" font-family="JetBrains Mono, monospace">${c}</text>`;
+    if (c) s += `<text x="${x+bw/2}" y="${y(base)-4}" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--green)" font-family="JetBrains Mono, monospace">${c}</text>`;
     if (i%2===0 || i===n-1) s += `<text x="${x+bw/2}" y="${H-14}" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace">${WEEK_LABELS[i]}</text>`;
   });
   const lx = L + 10*step;
