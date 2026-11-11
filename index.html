@@ -132,6 +132,40 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
 @media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}.funnel,.plan{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.q{grid-template-columns:minmax(0,1fr);padding:18px 16px}.av{display:none}.qact{margin-left:0;width:100%}.feed-head{padding:14px 16px}.tabs a{font-size:17px}.tabs small{display:none}.funnel,.plan,.keep,.compare{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:no-preference){.step .meter i,.route .bar i{transition:width .3s ease}}
+
+.board{border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px}
+.board-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.seg{display:inline-flex;background:var(--soft);border-radius:8px;padding:3px}
+.seg button{font:500 13px var(--f-body);color:var(--muted);background:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:#ffffff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.lb{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.lb li{display:grid;grid-template-columns:18px 32px minmax(0,1fr) auto;gap:10px;align-items:center}
+.lb .pos{font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;text-align:center}
+.lb li:first-child .pos{color:var(--ink)}
+.av.sm{width:32px;height:32px;font-size:14px;grid-row:auto}
+.lb .who{display:grid;min-width:0}
+.lb .who b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb .who small{font-size:13px;color:var(--muted)}
+.lbbar{height:4px;background:var(--soft);border-radius:2px;overflow:hidden;margin-top:4px}
+.lbbar i{display:block;height:100%;background:var(--green)}
+.lb .pts{font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.lb .pts small{font-size:12px;font-weight:500;color:var(--muted);margin-left:3px}
+.howpts{font-size:14px;border-top:1px solid var(--line);padding-top:12px}
+.howpts summary{cursor:pointer;font-weight:600}
+.howpts ul{margin:10px 0 6px;padding:0;list-style:none;display:grid;gap:4px}
+.howpts b{display:inline-block;min-width:34px}
+.howpts p{margin:0;font-size:13px;color:var(--muted)}
+.activity{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.activity li{display:grid;grid-template-columns:10px minmax(0,1fr);gap:12px;font-size:14.5px;line-height:1.45}
+.activity a{font-weight:600;text-decoration:none}
+.activity a:hover{text-decoration:underline}
+.activity .when{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:6px}
+.dot.g{background:var(--green)} .dot.r{background:var(--warn)} .dot.k{background:var(--ink)}
+.internal{background:#000000;color:#ffffff;border-radius:12px;padding:10px 16px;font-size:14px}
+.review{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.review li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;font-size:14px}
+.review a{display:block;font-size:13px;margin-top:2px}
 </style>
 <style>body{margin:0}</style>
 </head>
@@ -163,28 +197,37 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
         <ul class="qlist" id="qlist"></ul>
       </div>
       <aside class="side">
+        <div class="board">
+          <div class="board-head">
+            <h2>Leaderboard</h2>
+            <div class="seg" role="group" aria-label="Leaderboard period">
+              <button data-p="launch" aria-pressed="true">Since launch</button>
+              <button data-p="12w" aria-pressed="false">12 weeks</button>
+            </div>
+          </div>
+          <ol class="lb" id="lb"></ol>
+          <details class="howpts">
+            <summary>How points work</summary>
+            <ul>
+              <li><b>+10</b> your answer is marked as the solution</li>
+              <li><b>+5</b> the person you helped is a New Member</li>
+              <li><b>+5</b> you solved it within 24 hours of the question</li>
+              <li><b>0</b> for replies that don't solve anything, so posting more doesn't earn points</li>
+            </ul>
+            <p>Points are checked by the community team each week before the board updates.</p>
+          </details>
+        </div>
+
         <div>
-          <h2 style="margin-bottom:16px">Solved by the community</h2>
-          <ul class="solved">
-            <li><a href="https://forum.figma.com/ask-the-community-7/make-auto-layout-frames-extend-upwards-57477" target="_blank" rel="noopener">Make auto layout frames extend upwards<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Ondrej_Pavlicek · Ambassador</span></li>
-            <li><a href="https://forum.figma.com/ask-the-community-7/is-there-a-way-i-can-use-an-older-version-of-figma-reverse-an-update-59673" target="_blank" rel="noopener">Is there a way I can use an older version of Figma?<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Haroll · Ambassador</span></li>
-            <li><a href="https://forum.figma.com/ask-the-community-7/my-prototype-isn-t-going-onto-my-website-59506" target="_blank" rel="noopener">My prototype isn't going onto my website<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">NeoTang · New Member</span></li>
-            <li><a href="https://forum.figma.com/ask-the-community-7/fill-container-option-missing-on-nested-text-layer-inside-a-component-auto-layout-59426" target="_blank" rel="noopener">“Fill container” missing on a nested text layer<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Ondrej_Pavlicek · Ambassador</span></li>
-            <li><a href="https://forum.figma.com/ask-the-community-7/i-don-t-understand-why-i-keep-getting-the-not-used-within-component-error-59101" target="_blank" rel="noopener">Why do I keep getting the “Not used within component” error?<svg class="chk" viewBox="0 0 20 20" aria-label="Solved"><circle cx="10" cy="10" r="10" fill="#23cb71"/><path d="M5.5 10.2l3 3 6-6.4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="by">Lucas West- · New Participant</span></li>
+          <h2 style="margin-bottom:14px">What's happening</h2>
+          <ul class="activity">
+            <li><span class="dot g"></span><div><b>Ondrej_Pavlicek</b> solved <a href="https://forum.figma.com/ask-the-community-7/make-auto-layout-frames-extend-upwards-57477" target="_blank" rel="noopener">Make auto layout frames extend upwards</a>, a question that had waited two months<span class="when">4 days ago · +15 pts</span></div></li>
+            <li><span class="dot g"></span><div><b>Haroll</b> solved <a href="https://forum.figma.com/ask-the-community-7/is-there-a-way-i-can-use-an-older-version-of-figma-reverse-an-update-59673" target="_blank" rel="noopener">Is there a way I can use an older version of Figma?</a><span class="when">7 days ago · +20 pts</span></div></li>
+            <li><span class="dot g"></span><div><b>NeoTang</b> solved <a href="https://forum.figma.com/ask-the-community-7/my-prototype-isn-t-going-onto-my-website-59506" target="_blank" rel="noopener">My prototype isn't going onto my website</a><span class="when">8 days ago · +15 pts</span></div></li>
+            <li><span class="dot r"></span><div><a href="https://forum.figma.com/ask-the-community-7/how-to-structure-variants-and-variables-for-an-auction-app-with-bid-states-and-a-countdown-timer-so-the-prototype-and-dev-mode-handoff-stay-clean-59394" target="_blank" rel="noopener">Structuring variants for an auction app</a> has had no replies for 13 days<span class="when">Design systems &amp; variables · 84 views</span></div></li>
+            <li><span class="dot g"></span><div><b>Ondrej_Pavlicek</b> solved <a href="https://forum.figma.com/ask-the-community-7/fill-container-option-missing-on-nested-text-layer-inside-a-component-auto-layout-59426" target="_blank" rel="noopener">“Fill container” missing on a nested text layer</a> in under an hour<span class="when">13 days ago · +20 pts</span></div></li>
+            <li><span class="dot k"></span><div>The first six Forum Ambassadors were announced<span class="when">26 Oct</span></div></li>
           </ul>
-        </div>
-        <div class="howbox">
-          <h3>How questions are picked</h3>
-          <ol class="rules">
-            <li>Only how-to and workflow questions from Ask the Community</li>
-            <li>No replies yet comes first, then the most viewed</li>
-            <li>Billing, account access, plugin reviews and bugs stay with Figma Support</li>
-            <li>Up to five a week. Skip it whenever you're busy.</li>
-          </ol>
-        </div>
-        <div class="howbox">
-          <h3>Your answers, reused</h3>
-          <p class="muted" style="color:var(--text)">When your answer is marked as the solution and explains a workflow others will need, the community team may ask to turn it into a short guide credited to you.</p>
         </div>
       </aside>
     </div>
@@ -192,6 +235,7 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
 
   <!-- TEAM VIEW -->
   <section class="view" id="team" role="tabpanel" aria-labelledby="tab-team" hidden>
+    <div class="internal"><b>Internal</b> · Community team only. Ambassadors never see this view.</div>
     <section class="funnel" aria-label="Routing funnel">
       <div class="step"><span class="lab">In “Help others”</span><span class="num">415</span><span class="def">Topics without an accepted answer, across all categories</span><div class="meter"><i style="width:100%"></i></div></div>
       <div class="step"><span class="lab">Ask the Community</span><span class="num">65</span><span class="def">The rest are bug reports, feature requests and feedback</span><div class="meter"><i style="width:15.7%"></i></div></div>
@@ -200,18 +244,24 @@ td .meta{display:block;font-size:13px;color:var(--muted)}
     </section>
 
     <div class="grid2">
+      <div style="display:grid;gap:24px;align-content:start;min-width:0">
       <section class="panel" aria-labelledby="t-base">
-        <div class="panel-head">
-          <h2 id="t-base">Baseline: who writes the accepted answer</h2>
-          <div class="legend"><span><i style="background:var(--green)"></i>Community</span><span><i style="background:var(--staff)"></i>Figma staff</span><span><i style="background:var(--self)"></i>Asker</span></div>
-        </div>
-        <svg id="chart" viewBox="0 0 560 250" role="img" aria-label="Weekly accepted answers in Ask the Community, with the Ambassador launch on 26 October marked"></svg>
+        <h2 id="t-base">Is it working?</h2>
         <div class="compare">
-          <div><b>6%</b><span>Community share before launch<br>6 of 99 accepted answers, 17 Aug – 25 Oct</span></div>
-          <div class="after"><b>19%</b><span>Community share since launch<br>4 of 21 accepted answers, 26 Oct – 8 Nov</span></div>
+          <div><b>6%</b><span>Accepted answers written by the community before launch<br>6 of 99, 17 Aug – 25 Oct</span></div>
+          <div class="after"><b>19%</b><span>Since the Ambassadors launched<br>4 of 21, 26 Oct – 8 Nov</span></div>
         </div>
-        <p class="muted">An early signal from a small sample. 2 of the 6 founding Ambassadors had accepted answers in Ask the Community in this window, so matching questions to the other four is the first thing to test.</p>
+        <p class="muted">An early signal from a small sample. The pilot would track this weekly, along with time to first reply.</p>
       </section>
+      <section class="panel" aria-labelledby="t-review">
+        <h2 id="t-review">Needs review</h2>
+        <ul class="review">
+          <li><span class="pill warn">Points check</span><div><b>henerywein</b> answered within minutes, and the asker has the same surname. Held off the leaderboard until checked.<a href="https://forum.figma.com/ask-the-community-7/how-do-you-keep-figma-projects-organized-as-they-grow-58153" target="_blank" rel="noopener">View thread</a></div></li>
+          <li><span class="pill line">Check in</span><div><b>4 of 6 Ambassadors</b> have no accepted answers in Ask the Community yet. They may be active elsewhere. Ask which areas they'd like in their digest.</div></li>
+          <li><span class="pill line">Unrecognized</span><div><b>Nellya</b> has 839 replies and 475 likes, and no badge. A possible future Ambassador.</div></li>
+        </ul>
+      </section>
+      </div>
 
       <section class="panel" aria-labelledby="t-route">
         <div class="panel-head"><h2 id="t-route">Routing the 65 questions</h2></div>
@@ -370,12 +420,28 @@ function drawChart(){
   svg.innerHTML = s;
 }
 
+
+const BOARD = {
+  launch: [["Ondrej_Pavlicek","Ambassador",35,2],["Haroll","Ambassador",20,1],["NeoTang","New Member",15,1]],
+  "12w":  [["Ondrej_Pavlicek","Ambassador",70,4],["Haroll","Ambassador",20,1],["Johnson_Ryan","Active Member",20,1],["Nellya","Power Member",20,1],["NeoTang","New Member",15,1],["Lucas West-","New Participant",15,1]]
+};
+let boardP = "launch";
+function renderBoard(){
+  document.querySelectorAll(".board .seg button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.p===boardP)));
+  const rows = BOARD[boardP], top = rows[0][2];
+  $("lb").innerHTML = rows.map(([h,r,p,n],i)=>`<li>
+    <span class="pos">${i+1}</span>${avatar(h).replace('class="av"','class="av sm"')}
+    <span class="who"><b>${esc(h)}</b><small>${esc(r)} · ${n} ${n===1?"solution":"solutions"}</small><span class="lbbar"><i style="width:${Math.round(p/top*100)}%"></i></span></span>
+    <span class="pts">${p}<small>pts</small></span></li>`).join("");
+}
+document.querySelectorAll(".board .seg button").forEach(b=>b.addEventListener("click",()=>{boardP=b.dataset.p;renderBoard();}));
+
 function show(){
   const id = location.hash === "#team" ? "team" : "ambassador";
   ["ambassador","team"].forEach(v=>{ $(v).hidden = v!==id; $("tab-"+v).setAttribute("aria-selected", String(v===id)); });
 }
 window.addEventListener("hashchange", show);
-renderChips(); renderDigest(); renderRoute(); drawChart(); show();
+renderChips(); renderDigest(); renderRoute(); renderBoard(); show();
 </script>
 
 </body>
